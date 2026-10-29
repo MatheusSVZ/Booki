@@ -1,8 +1,34 @@
 <resources>
     <string name="app_name">Booki!</string>
+    <string name="slogan">Sua biblioteca pessoal</string>
     <string name="ok">OK</string>
     <string name="sim">Sim</string>
     <string name="nao">Não</string>
     <string name="cancelar">Cancelar</string>
     <string name="voltar">Voltar</string>
+
+    <!-- Login e cadastro -->
+    <string name="titulo_login">Entrar</string>
+    <string name="email">E-mail</string>
+    <string name="senha">Senha</string>
+    <string name="entrar">Entrar</string>
+    <string name="criar_conta">Ainda não tem conta? Cadastre-se</string>
+    <string name="titulo_cadastro">Criar conta</string>
+    <string name="descricao_cadastro">Crie sua conta para montar sua estante. Os dados ficam salvos neste aparelho.</string>
+    <string name="nome">Nome</string>
+    <string name="confirmar_senha">Confirmar senha</string>
+    <string name="ajuda_senha">Mínimo de 6 caracteres</string>
+    <string name="cadastrar">Cadastrar</string>
+    <string name="conta_criada">Conta criada! Agora é só entrar.</string>
+    <string name="erro_informe_email">Informe o e-mail</string>
+    <string name="erro_email_invalido">E-mail inválido</string>
+    <string name="erro_informe_senha">Informe a senha</string>
+    <string name="erro_email_em_uso">Já existe uma conta com este e-mail</string>
+    <string name="titulo_falha_login">Não foi possível entrar</string>
+    <string name="erro_login_incorreto">E-mail ou senha incorretos.</string>
+
+    <!-- Principal -->
+    <string name="ola_usuario">Olá, %1$s!</string>
+    <string name="sair">Sair</string>
+    <string name="confirma_sair">Deseja sair da sua conta?</string>
 </resources>
