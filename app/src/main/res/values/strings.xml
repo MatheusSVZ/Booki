@@ -86,4 +86,22 @@
     <string name="excluir_livro">Excluir livro</string>
     <string name="confirma_excluir">Excluir \"%1$s\" da sua estante? Essa ação não pode ser desfeita.</string>
     <string name="livro_excluido">Livro excluído</string>
+    <!-- Internet / APIs -->
+    <string name="sem_internet_titulo">Sem conexão</string>
+    <string name="sem_internet_msg">Não foi possível acessar a internet. Verifique o Wi-Fi ou os dados móveis e tente de novo.</string>
+    <string name="servico_indisponivel_titulo">Serviço indisponível</string>
+    <string name="servico_indisponivel_msg">O serviço de livros não respondeu agora (código %1$d). Tente mais tarde.</string>
+    <string name="preco_titulo">Preço</string>
+    <string name="preco_instrucao">Consulte quanto este livro custa no Google Play Livros.</string>
+    <string name="preco_consultando">Consultando preço…</string>
+    <string name="preco_encontrado">%1$s\n(%2$s, Google Play Livros)</string>
+    <string name="preco_nao_encontrado">Este livro não está à venda no Google Play Livros no momento.</string>
+    <string name="preco_indisponivel">Consulta de preço indisponível no momento (código %1$d). Verifique a chave GOOGLE_BOOKS_API_KEY no local.properties.</string>
+    <string name="consultar_preco">Consultar preço</string>
+    <string name="ver_na_loja">Ver na loja</string>
+    <string name="buscar_isbn">Buscar dados pelo ISBN</string>
+    <string name="erro_isbn_para_busca">Digite um ISBN válido para buscar</string>
+    <string name="isbn_nao_encontrado_titulo">ISBN não encontrado</string>
+    <string name="isbn_nao_encontrado_msg">Não encontramos esse ISBN na Open Library. Preencha os dados manualmente.</string>
+    <string name="dados_preenchidos">Dados preenchidos pela Open Library</string>
 </resources>

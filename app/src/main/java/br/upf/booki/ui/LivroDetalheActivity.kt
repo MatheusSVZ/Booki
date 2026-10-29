@@ -13,9 +13,13 @@ import androidx.appcompat.widget.Toolbar
 import androidx.core.content.ContextCompat
 import androidx.lifecycle.lifecycleScope
 import br.upf.booki.R
+import android.net.Uri
+import br.upf.booki.api.ConsultaLivros
+import br.upf.booki.api.Resultado
 import br.upf.booki.data.AppDatabase
 import br.upf.booki.model.Livro
 import br.upf.booki.model.StatusLeitura
+import br.upf.booki.util.Conexao
 import br.upf.booki.util.Sessao
 import br.upf.booki.util.Util
 import kotlinx.coroutines.launch
@@ -44,6 +48,60 @@ class LivroDetalheActivity : AppCompatActivity() {
         setSupportActionBar(toolbar)
         toolbar.setNavigationOnClickListener { finish() }
         Util.aplicarMargensDoSistema(findViewById(R.id.raizLivroDetalhe), toolbar)
+
+        findViewById<View>(R.id.btnConsultarPreco).setOnClickListener {
+            livro?.let { consultarPreco(it) }
+        }
+    }
+
+    /** Consulta o preço no Google Books; sem internet mostra um aviso em vez de travar. */
+    private fun consultarPreco(livro: Livro) {
+        val txtPreco = findViewById<TextView>(R.id.txtPreco)
+        val progresso = findViewById<View>(R.id.progressoPreco)
+        val btnConsultar = findViewById<View>(R.id.btnConsultarPreco)
+        val btnLoja = findViewById<View>(R.id.btnVerLoja)
+
+        if (!Conexao.temInternet(this)) {
+            Util.dialogoAlerta(this, getString(R.string.sem_internet_titulo), getString(R.string.sem_internet_msg))
+            return
+        }
+        progresso.visibility = View.VISIBLE
+        btnConsultar.isEnabled = false
+        btnLoja.visibility = View.GONE
+        txtPreco.setText(R.string.preco_consultando)
+
+        lifecycleScope.launch {
+            val resultado = ConsultaLivros.consultarPreco(livro)
+            progresso.visibility = View.GONE
+            btnConsultar.isEnabled = true
+            when (resultado) {
+                is Resultado.Sucesso -> {
+                    val preco = resultado.valor
+                    if (preco == null) {
+                        txtPreco.setText(R.string.preco_nao_encontrado)
+                    } else {
+                        txtPreco.text = getString(R.string.preco_encontrado, preco.valorFormatado, preco.tituloNaLoja)
+                        val link = preco.linkCompra
+                        if (link != null) {
+                            btnLoja.visibility = View.VISIBLE
+                            // Intent implícita: abre o link no navegador.
+                            btnLoja.setOnClickListener {
+                                startActivity(Intent(Intent.ACTION_VIEW, Uri.parse(link)))
+                            }
+                        }
+                    }
+                }
+                Resultado.SemConexao -> {
+                    txtPreco.setText(R.string.preco_instrucao)
+                    Util.dialogoAlerta(
+                        this@LivroDetalheActivity,
+                        getString(R.string.sem_internet_titulo),
+                        getString(R.string.sem_internet_msg)
+                    )
+                }
+                is Resultado.Indisponivel -> txtPreco.text = getString(R.string.preco_indisponivel, resultado.codigo)
+            }
+        }
     }
 
     /** Recarrega sempre que a tela volta ao primeiro plano (ex.: depois de editar). */
