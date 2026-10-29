@@ -1,8 +1,107 @@
 <resources>
     <string name="app_name">Booki!</string>
+    <string name="slogan">Sua biblioteca pessoal</string>
     <string name="ok">OK</string>
     <string name="sim">Sim</string>
     <string name="nao">Não</string>
     <string name="cancelar">Cancelar</string>
     <string name="voltar">Voltar</string>
+
+    <!-- Login e cadastro -->
+    <string name="titulo_login">Entrar</string>
+    <string name="email">E-mail</string>
+    <string name="senha">Senha</string>
+    <string name="entrar">Entrar</string>
+    <string name="criar_conta">Ainda não tem conta? Cadastre-se</string>
+    <string name="titulo_cadastro">Criar conta</string>
+    <string name="descricao_cadastro">Crie sua conta para montar sua estante. Os dados ficam salvos neste aparelho.</string>
+    <string name="nome">Nome</string>
+    <string name="confirmar_senha">Confirmar senha</string>
+    <string name="ajuda_senha">Mínimo de 6 caracteres</string>
+    <string name="cadastrar">Cadastrar</string>
+    <string name="conta_criada">Conta criada! Agora é só entrar.</string>
+    <string name="erro_informe_email">Informe o e-mail</string>
+    <string name="erro_email_invalido">E-mail inválido</string>
+    <string name="erro_informe_senha">Informe a senha</string>
+    <string name="erro_email_em_uso">Já existe uma conta com este e-mail</string>
+    <string name="titulo_falha_login">Não foi possível entrar</string>
+    <string name="erro_login_incorreto">E-mail ou senha incorretos.</string>
+
+    <!-- Principal -->
+    <string name="nav_estante">Minha estante</string>
+    <string name="nav_recomendacoes">Recomendações</string>
+    <string name="nav_perfil">Perfil</string>
+    <string name="estante_vazia">Sua estante está vazia.\nToque em \"Novo livro\" para começar.</string>
+    <string name="recomendacoes_em_breve">Em breve: sugestões de livros com base nos livros que você mais gostou.</string>
+    <string name="sair">Sair</string>
+    <string name="confirma_sair">Deseja sair da sua conta?</string>
+
+    <!-- Estante -->
+    <string name="status_lido">Lido</string>
+    <string name="status_lendo">Lendo</string>
+    <string name="status_quero_ler">Quero ler/comprar</string>
+    <string name="filtro_todos">Todos</string>
+    <string name="filtro_vazio">Nenhum livro com este status.</string>
+    <string name="novo_livro">Novo livro</string>
+
+    <!-- Formulário de livro -->
+    <string name="titulo_novo_livro">Novo livro</string>
+    <string name="titulo_editar_livro">Editar livro</string>
+    <string name="titulo_obrigatorio">Título *</string>
+    <string name="autor_obrigatorio">Autor *</string>
+    <string name="isbn">ISBN (opcional)</string>
+    <string name="ajuda_isbn">10 ou 13 dígitos; usado para consultar o preço</string>
+    <string name="categoria">Categoria</string>
+    <string name="paginas">Páginas</string>
+    <string name="status_leitura">Status de leitura</string>
+    <string name="sua_nota">Sua nota</string>
+    <string name="data_inicio">Data de início</string>
+    <string name="data_conclusao">Data de conclusão</string>
+    <string name="comentario">Comentário</string>
+    <string name="salvar">Salvar</string>
+    <string name="corrija_campos">Corrija os campos destacados</string>
+    <string name="erro_paginas">Informe um número inteiro</string>
+    <string name="erro_isbn_repetido">Você já tem um livro com este ISBN na estante</string>
+    <string name="livro_adicionado">Livro adicionado à estante</string>
+    <string name="livro_atualizado">Livro atualizado</string>
+    <string name="livro_nao_encontrado">Livro não encontrado</string>
+
+    <!-- Detalhe do livro -->
+    <string name="titulo_detalhe_livro">Detalhes do livro</string>
+    <string name="info_isbn">ISBN: %1$s</string>
+    <string name="info_categoria">Categoria: %1$s</string>
+    <string name="info_paginas">Páginas: %1$d</string>
+    <string name="info_inicio">Início da leitura: %1$s</string>
+    <string name="info_conclusao">Concluído em: %1$s</string>
+    <string name="info_nota">Nota: %1$s de 5</string>
+    <string name="info_vazia">Sem outras informações cadastradas.</string>
+    <string name="compartilhar">Compartilhar</string>
+    <string name="compartilhar_com">Compartilhar livro com…</string>
+    <string name="compartilhar_lido">Terminei de ler \"%1$s\", de %2$s%3$s. Organizo minhas leituras no Booki!</string>
+    <string name="compartilhar_nota">, e dei nota %1$s de 5</string>
+    <string name="compartilhar_lendo">Estou lendo \"%1$s\", de %2$s. Organizo minhas leituras no Booki!</string>
+    <string name="compartilhar_quero_ler">\"%1$s\", de %2$s, está na minha lista de leitura do Booki!</string>
+    <string name="editar">Editar</string>
+    <string name="excluir">Excluir</string>
+    <string name="excluir_livro">Excluir livro</string>
+    <string name="confirma_excluir">Excluir \"%1$s\" da sua estante? Essa ação não pode ser desfeita.</string>
+    <string name="livro_excluido">Livro excluído</string>
+    <!-- Internet / APIs -->
+    <string name="sem_internet_titulo">Sem conexão</string>
+    <string name="sem_internet_msg">Não foi possível acessar a internet. Verifique o Wi-Fi ou os dados móveis e tente de novo.</string>
+    <string name="servico_indisponivel_titulo">Serviço indisponível</string>
+    <string name="servico_indisponivel_msg">O serviço de livros não respondeu agora (código %1$d). Tente mais tarde.</string>
+    <string name="preco_titulo">Preço</string>
+    <string name="preco_instrucao">Consulte quanto este livro custa no Google Play Livros.</string>
+    <string name="preco_consultando">Consultando preço…</string>
+    <string name="preco_encontrado">%1$s\n(%2$s, Google Play Livros)</string>
+    <string name="preco_nao_encontrado">Este livro não está à venda no Google Play Livros no momento.</string>
+    <string name="preco_indisponivel">Consulta de preço indisponível no momento (código %1$d). Verifique a chave GOOGLE_BOOKS_API_KEY no local.properties.</string>
+    <string name="consultar_preco">Consultar preço</string>
+    <string name="ver_na_loja">Ver na loja</string>
+    <string name="buscar_isbn">Buscar dados pelo ISBN</string>
+    <string name="erro_isbn_para_busca">Digite um ISBN válido para buscar</string>
+    <string name="isbn_nao_encontrado_titulo">ISBN não encontrado</string>
+    <string name="isbn_nao_encontrado_msg">Não encontramos esse ISBN na Open Library. Preencha os dados manualmente.</string>
+    <string name="dados_preenchidos">Dados preenchidos pela Open Library</string>
 </resources>
