@@ -23,6 +23,13 @@
             android:parentActivityName=".ui.LoginActivity"
             android:windowSoftInputMode="adjustResize" />
         <activity android:name=".MainActivity" />
+        <activity
+            android:name=".ui.LivroFormActivity"
+            android:parentActivityName=".MainActivity"
+            android:windowSoftInputMode="adjustResize" />
+        <activity
+            android:name=".ui.LivroDetalheActivity"
+            android:parentActivityName=".MainActivity" />
     </application>
 
 </manifest>
