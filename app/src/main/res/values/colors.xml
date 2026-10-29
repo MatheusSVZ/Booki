@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="booki_primaria">#5B3E96</color>
+    <color name="booki_primaria_escura">#3E2A6B</color>
+    <color name="booki_secundaria">#F2A541</color>
+    <color name="booki_fundo">#FAF7FF</color>
+    <color name="booki_superficie">#FFFFFF</color>
+    <color name="booki_texto">#1F1B24</color>
+    <color name="booki_texto_secundario">#5F5868</color>
+    <color name="status_lido">#2E7D32</color>
+    <color name="status_lendo">#1565C0</color>
+    <color name="status_quero_ler">#EF6C00</color>
+    <color name="white">#FFFFFF</color>
+    <color name="black">#000000</color>
+</resources>

@@ -1,0 +1,8 @@
+<resources>
+    <string name="app_name">Booki!</string>
+    <string name="ok">OK</string>
+    <string name="sim">Sim</string>
+    <string name="nao">Não</string>
+    <string name="cancelar">Cancelar</string>
+    <string name="voltar">Voltar</string>
+</resources>
