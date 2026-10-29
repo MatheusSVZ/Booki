@@ -15,11 +15,16 @@
         android:minHeight="?attr/actionBarSize"
         app:title="@string/app_name" />
 
-    <TextView
-        android:id="@+id/txtBoasVindas"
+    <!-- Os fragments (Estante, Recomendações e Perfil) são trocados aqui -->
+    <FrameLayout
+        android:id="@+id/containerFragments"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:gravity="center"
-        android:padding="@dimen/margem_tela"
-        android:textAppearance="@style/Booki.Titulo" />
+        android:layout_height="0dp"
+        android:layout_weight="1" />
+
+    <com.google.android.material.bottomnavigation.BottomNavigationView
+        android:id="@+id/navegacaoInferior"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:menu="@menu/menu_navegacao" />
 </LinearLayout>

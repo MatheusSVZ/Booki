@@ -28,7 +28,11 @@
     <string name="erro_login_incorreto">E-mail ou senha incorretos.</string>
 
     <!-- Principal -->
-    <string name="ola_usuario">Olá, %1$s!</string>
+    <string name="nav_estante">Minha estante</string>
+    <string name="nav_recomendacoes">Recomendações</string>
+    <string name="nav_perfil">Perfil</string>
+    <string name="estante_vazia">Sua estante está vazia.</string>
+    <string name="recomendacoes_em_breve">Em breve: sugestões de livros com base nos livros que você mais gostou.</string>
     <string name="sair">Sair</string>
     <string name="confirma_sair">Deseja sair da sua conta?</string>
 </resources>
