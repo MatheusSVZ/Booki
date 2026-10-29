@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+    <item
+        android:id="@+id/navEstante"
+        android:icon="@drawable/ic_estante"
+        android:title="@string/nav_estante" />
+    <item
+        android:id="@+id/navRecomendacoes"
+        android:icon="@drawable/ic_recomendacoes"
+        android:title="@string/nav_recomendacoes" />
+    <item
+        android:id="@+id/navPerfil"
+        android:icon="@drawable/ic_perfil"
+        android:title="@string/nav_perfil" />
+</menu>
