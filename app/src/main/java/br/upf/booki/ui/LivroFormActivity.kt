@@ -11,11 +11,14 @@ import androidx.appcompat.widget.Toolbar
 import androidx.core.widget.doAfterTextChanged
 import androidx.lifecycle.lifecycleScope
 import br.upf.booki.R
+import br.upf.booki.api.ConsultaLivros
+import br.upf.booki.api.Resultado
 import br.upf.booki.data.AppDatabase
 import br.upf.booki.model.Livro
 import br.upf.booki.model.StatusLeitura
 import br.upf.booki.model.ValidadorLivro
 import br.upf.booki.model.ValidadorLivro.Campo
+import br.upf.booki.util.Conexao
 import br.upf.booki.util.Sessao
 import br.upf.booki.util.Util
 import com.google.android.material.button.MaterialButton
@@ -85,6 +88,7 @@ class LivroFormActivity : AppCompatActivity() {
         configurarCampoData(campoDataConclusao, { dataConclusao }) { dataConclusao = it }
         grupoStatus.setOnCheckedChangeListener { _, _ -> atualizarCamposPorStatus() }
         btnSalvar.setOnClickListener { salvar() }
+        campoIsbn.setEndIconOnClickListener { preencherPeloIsbn() }
 
         if (savedInstanceState != null) {
             // Ao girar a tela os textos voltam sozinhos; as datas guardamos à parte.
@@ -194,6 +198,57 @@ class LivroFormActivity : AppCompatActivity() {
     }
 
     private fun texto(campo: TextInputLayout) = campo.editText?.text?.toString()?.trim().orEmpty()
+
+    /** Busca o ISBN na Open Library e completa os campos que ainda estão vazios. */
+    private fun preencherPeloIsbn() {
+        val isbn = texto(campoIsbn)
+        if (!ValidadorLivro.isbnValido(isbn)) {
+            campoIsbn.error = getString(R.string.erro_isbn_para_busca)
+            return
+        }
+        campoIsbn.error = null
+        if (!Conexao.temInternet(this)) {
+            Util.dialogoAlerta(this, getString(R.string.sem_internet_titulo), getString(R.string.sem_internet_msg))
+            return
+        }
+        campoIsbn.isEndIconVisible = false
+        lifecycleScope.launch {
+            val resultado = ConsultaLivros.buscarPorIsbn(ValidadorLivro.normalizarIsbn(isbn))
+            campoIsbn.isEndIconVisible = true
+            when (resultado) {
+                is Resultado.Sucesso -> {
+                    val dados = resultado.valor
+                    if (dados == null) {
+                        Util.dialogoAlerta(
+                            this@LivroFormActivity,
+                            getString(R.string.isbn_nao_encontrado_titulo),
+                            getString(R.string.isbn_nao_encontrado_msg)
+                        )
+                        return@launch
+                    }
+                    preencherSeVazio(campoTitulo, dados.titulo)
+                    preencherSeVazio(campoAutor, dados.autor)
+                    preencherSeVazio(campoCategoria, dados.categoria)
+                    preencherSeVazio(campoPaginas, dados.paginas?.toString())
+                    Util.mensagem(this@LivroFormActivity, getString(R.string.dados_preenchidos))
+                }
+                Resultado.SemConexao -> Util.dialogoAlerta(
+                    this@LivroFormActivity,
+                    getString(R.string.sem_internet_titulo),
+                    getString(R.string.sem_internet_msg)
+                )
+                is Resultado.Indisponivel -> Util.dialogoAlerta(
+                    this@LivroFormActivity,
+                    getString(R.string.servico_indisponivel_titulo),
+                    getString(R.string.servico_indisponivel_msg, resultado.codigo)
+                )
+            }
+        }
+    }
+
+    private fun preencherSeVazio(campo: TextInputLayout, valor: String?) {
+        if (texto(campo).isEmpty() && !valor.isNullOrBlank()) campo.editText?.setText(valor.take(150))
+    }
 
     private fun salvar() {
         val status = statusSelecionado()

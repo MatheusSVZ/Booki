@@ -67,6 +67,9 @@
                 android:layout_height="wrap_content"
                 android:layout_marginTop="@dimen/espaco_campos"
                 android:hint="@string/isbn"
+                app:endIconContentDescription="@string/buscar_isbn"
+                app:endIconDrawable="@drawable/ic_buscar"
+                app:endIconMode="custom"
                 app:helperText="@string/ajuda_isbn">
 
                 <com.google.android.material.textfield.TextInputEditText
