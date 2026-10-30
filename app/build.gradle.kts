@@ -1,7 +1,18 @@
+import java.util.Properties
+
 plugins {
     alias(libs.plugins.android.application)
     alias(libs.plugins.ksp)
 }
+
+// A chave da API do Google Books fica no local.properties (fora do Git).
+val propriedadesLocais = Properties().apply {
+    val arquivo = rootProject.file("local.properties")
+    if (arquivo.exists()) arquivo.inputStream().use { load(it) }
+}
+val chaveGoogleBooks: String = propriedadesLocais.getProperty("GOOGLE_BOOKS_API_KEY")
+    ?: System.getenv("GOOGLE_BOOKS_API_KEY")
+    ?: ""
 
 android {
     namespace = "br.upf.booki"
@@ -14,6 +25,11 @@ android {
         versionCode = 1
         versionName = "1.0"
         testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
+        buildConfigField("String", "GOOGLE_BOOKS_API_KEY", "\"$chaveGoogleBooks\"")
+    }
+
+    buildFeatures {
+        buildConfig = true
     }
 
     buildTypes {

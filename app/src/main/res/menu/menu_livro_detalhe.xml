@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+    <item
+        android:id="@+id/acaoCompartilhar"
+        android:icon="@drawable/ic_compartilhar"
+        android:title="@string/compartilhar"
+        app:iconTint="@color/white"
+        app:showAsAction="ifRoom" />
+    <item
+        android:id="@+id/acaoEditar"
+        android:icon="@drawable/ic_editar"
+        android:title="@string/editar"
+        app:iconTint="@color/white"
+        app:showAsAction="ifRoom" />
+    <item
+        android:id="@+id/acaoExcluir"
+        android:icon="@drawable/ic_excluir"
+        android:title="@string/excluir"
+        app:iconTint="@color/white"
+        app:showAsAction="ifRoom" />
+</menu>
