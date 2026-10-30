@@ -89,6 +89,10 @@ class LivroFormActivity : AppCompatActivity() {
         grupoStatus.setOnCheckedChangeListener { _, _ -> atualizarCamposPorStatus() }
         btnSalvar.setOnClickListener { salvar() }
         campoIsbn.setEndIconOnClickListener { preencherPeloIsbn() }
+        // O erro some ao editar o campo (no ISBN isso também traz a lupa de volta).
+        listOf(campoTitulo, campoAutor, campoIsbn, campoPaginas).forEach { campo ->
+            campo.editText?.doAfterTextChanged { campo.error = null }
+        }
 
         if (savedInstanceState != null) {
             // Ao girar a tela os textos voltam sozinhos; as datas guardamos à parte.

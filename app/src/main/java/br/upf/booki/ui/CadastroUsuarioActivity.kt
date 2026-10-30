@@ -5,6 +5,7 @@ import android.database.sqlite.SQLiteConstraintException
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
 import androidx.appcompat.widget.Toolbar
+import androidx.core.widget.doAfterTextChanged
 import androidx.lifecycle.lifecycleScope
 import br.upf.booki.R
 import br.upf.booki.data.AppDatabase
@@ -38,6 +39,8 @@ class CadastroUsuarioActivity : AppCompatActivity() {
             Campo.SENHA to findViewById(R.id.campoSenha),
             Campo.CONFIRMACAO to findViewById(R.id.campoConfirmacao)
         )
+        // O erro de cada campo some assim que o usuário volta a digitar nele.
+        campos.values.forEach { campo -> campo.editText?.doAfterTextChanged { campo.error = null } }
         btnCadastrar = findViewById(R.id.btnCadastrar)
         btnCadastrar.setOnClickListener { cadastrar() }
     }
