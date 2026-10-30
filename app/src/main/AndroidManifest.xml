@@ -24,15 +24,18 @@
         </activity>
         <activity
             android:name=".ui.CadastroUsuarioActivity"
+            android:label="@string/titulo_cadastro"
             android:parentActivityName=".ui.LoginActivity"
             android:windowSoftInputMode="adjustResize" />
         <activity android:name=".MainActivity" />
         <activity
             android:name=".ui.LivroFormActivity"
+            android:label="@string/titulo_novo_livro"
             android:parentActivityName=".MainActivity"
             android:windowSoftInputMode="adjustResize" />
         <activity
             android:name=".ui.LivroDetalheActivity"
+            android:label="@string/titulo_detalhe_livro"
             android:parentActivityName=".MainActivity" />
     </application>
 
