@@ -73,6 +73,6 @@ O `fragment_perfil.xml` já tem um `LinearLayout` vazio com id `painelEstatistic
 
 ## Tarefa 3: Revisão, integração e prints (`docs/prints-recomendacoes`)
 
-1. **Revise os Pull Requests do Matheus** no GitHub (aba *Files changed*), deixe comentários ou aprove, e faça o merge **nesta ordem**: #2 login, #3 navegação, #4 CRUD, #5 API, #6 documentação. Depois, os seus.
+1. **Revise os Pull Requests do Matheus** no GitHub (aba *Files changed*), deixe comentários ou aprove, e faça o merge **nesta ordem**: #2 login, #3 navegação, #4 CRUD, #5 API, #6 README, #7 correções dos testes, #8 prints das telas. Depois, os seus.
 2. Depois que tudo estiver em `develop` e testado no emulador, abra o PR `develop` → `main` (versão estável para entrega).
 3. Tire os prints das telas que você criou (Recomendações e Perfil com estatísticas) no emulador e adicione em `docs/prints/` e em `docs/telas.md`, na branch `docs/prints-recomendacoes`.
