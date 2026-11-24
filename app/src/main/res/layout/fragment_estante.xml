@@ -1,0 +1,114 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.coordinatorlayout.widget.CoordinatorLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/booki_fundo">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginHorizontal="20dp"
+            android:layout_marginTop="4dp"
+            android:text="@string/titulo_estante"
+            android:textColor="@color/booki_texto"
+            android:textSize="32sp"
+            android:textStyle="bold" />
+
+        <HorizontalScrollView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:scrollbars="none">
+
+            <com.google.android.material.chip.ChipGroup
+                android:id="@+id/grupoFiltro"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:paddingHorizontal="20dp"
+                android:paddingVertical="4dp"
+                app:checkedChip="@id/chipTodos"
+                app:chipSpacingHorizontal="8dp"
+                app:selectionRequired="true"
+                app:singleLine="true"
+                app:singleSelection="true">
+
+                <com.google.android.material.chip.Chip
+                    android:id="@+id/chipTodos"
+                    style="@style/Booki.ChipFiltro"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/filtro_todos" />
+
+                <com.google.android.material.chip.Chip
+                    android:id="@+id/chipLendo"
+                    style="@style/Booki.ChipFiltro"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/status_lendo" />
+
+                <com.google.android.material.chip.Chip
+                    android:id="@+id/chipQueroLer"
+                    style="@style/Booki.ChipFiltro"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/status_quero_ler" />
+
+                <com.google.android.material.chip.Chip
+                    android:id="@+id/chipLido"
+                    style="@style/Booki.ChipFiltro"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/filtro_lidos" />
+            </com.google.android.material.chip.ChipGroup>
+        </HorizontalScrollView>
+
+        <FrameLayout
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="1">
+
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/listaLivros"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:clipToPadding="false"
+                android:paddingHorizontal="20dp"
+                android:paddingTop="12dp"
+                android:paddingBottom="96dp" />
+
+            <TextView
+                android:id="@+id/txtEstanteVazia"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:drawablePadding="12dp"
+                android:gravity="center"
+                android:padding="32dp"
+                android:text="@string/estante_vazia"
+                android:textAppearance="@style/TextAppearance.Material3.BodyLarge"
+                android:textColor="@color/booki_texto_secundario"
+                android:visibility="gone"
+                app:drawableTint="@color/booki_primaria"
+                app:drawableTopCompat="@drawable/ic_estante" />
+        </FrameLayout>
+    </LinearLayout>
+
+    <!-- Botão flutuante (+) no estilo da Millena -->
+    <com.google.android.material.floatingactionbutton.FloatingActionButton
+        android:id="@+id/fabNovoLivro"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="bottom|end"
+        android:layout_margin="16dp"
+        android:contentDescription="@string/novo_livro"
+        android:src="@drawable/ic_adicionar"
+        app:backgroundTint="@color/booki_secundaria"
+        app:tint="@color/booki_texto" />
+</androidx.coordinatorlayout.widget.CoordinatorLayout>
+

@@ -1,0 +1,158 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/booki_fundo"
+    android:orientation="vertical">
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginHorizontal="20dp"
+        android:layout_marginTop="4dp"
+        android:text="@string/titulo_desejos"
+        android:textColor="@color/booki_texto"
+        android:textSize="32sp"
+        android:textStyle="bold" />
+
+    <HorizontalScrollView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:scrollbars="none">
+
+        <com.google.android.material.chip.ChipGroup
+            android:id="@+id/grupoModoDesejos"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:paddingHorizontal="20dp"
+            android:paddingVertical="4dp"
+            app:checkedChip="@id/chipPesquisar"
+            app:chipSpacingHorizontal="8dp"
+            app:selectionRequired="true"
+            app:singleLine="true"
+            app:singleSelection="true">
+
+            <com.google.android.material.chip.Chip
+                android:id="@+id/chipPesquisar"
+                style="@style/Booki.ChipFiltro"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/aba_pesquisar" />
+
+            <com.google.android.material.chip.Chip
+                android:id="@+id/chipListaDesejos"
+                style="@style/Booki.ChipFiltro"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/aba_lista_desejos" />
+        </com.google.android.material.chip.ChipGroup>
+    </HorizontalScrollView>
+
+    <!-- Visão 1: Pesquisar livros e valores -->
+    <LinearLayout
+        android:id="@+id/painelPesquisa"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:orientation="vertical">
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/campoBuscaLivro"
+            style="@style/Booki.CampoTexto"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginHorizontal="20dp"
+            android:layout_marginTop="12dp"
+            android:hint="@string/hint_buscar_livros"
+            app:endIconContentDescription="@string/aba_pesquisar"
+            app:endIconDrawable="@drawable/ic_buscar"
+            app:endIconMode="custom"
+            app:endIconTint="@color/booki_primaria">
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/editBuscaLivro"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:imeOptions="actionSearch"
+                android:inputType="text"
+                android:maxLines="1"
+                android:textColor="@color/booki_texto" />
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <ProgressBar
+            android:id="@+id/progressoBusca"
+            style="?android:attr/progressBarStyleHorizontal"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginHorizontal="20dp"
+            android:layout_marginTop="8dp"
+            android:indeterminate="true"
+            android:indeterminateTint="@color/booki_primaria"
+            android:visibility="gone" />
+
+        <FrameLayout
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="1">
+
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/listaResultados"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:clipToPadding="false"
+                android:paddingHorizontal="20dp"
+                android:paddingTop="12dp"
+                android:paddingBottom="24dp" />
+
+            <TextView
+                android:id="@+id/txtEstadoPesquisa"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:drawablePadding="12dp"
+                android:gravity="center"
+                android:padding="32dp"
+                android:text="@string/pesquisa_inicial"
+                android:textAppearance="@style/TextAppearance.Material3.BodyLarge"
+                android:textColor="@color/booki_texto_secundario"
+                app:drawableTint="@color/booki_primaria"
+                app:drawableTopCompat="@drawable/ic_buscar" />
+        </FrameLayout>
+    </LinearLayout>
+
+    <!-- Visão 2: Lista de desejos salva no Room -->
+    <FrameLayout
+        android:id="@+id/painelListaDesejos"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:visibility="gone">
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/listaDesejos"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:clipToPadding="false"
+            android:paddingHorizontal="20dp"
+            android:paddingTop="12dp"
+            android:paddingBottom="24dp" />
+
+        <TextView
+            android:id="@+id/txtDesejosVazios"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:drawablePadding="12dp"
+            android:gravity="center"
+            android:padding="32dp"
+            android:text="@string/desejos_vazios"
+            android:textAppearance="@style/TextAppearance.Material3.BodyLarge"
+            android:textColor="@color/booki_texto_secundario"
+            android:visibility="gone"
+            app:drawableTint="@color/booki_primaria"
+            app:drawableTopCompat="@drawable/ic_desejos" />
+    </FrameLayout>
+</LinearLayout>
+

@@ -1,3 +1,153 @@
 <resources>
-    <string name="app_name">Booki</string>
+    <string name="app_name">Booki!</string>
+    <string name="slogan">Sua estante virtual</string>
+    <string name="ok">OK</string>
+    <string name="sim">Sim</string>
+    <string name="nao">Não</string>
+    <string name="cancelar">Cancelar</string>
+    <string name="voltar">Voltar</string>
+
+    <!-- Login e cadastro -->
+    <string name="titulo_login">Entrar</string>
+    <string name="email">E-mail</string>
+    <string name="senha">Senha</string>
+    <string name="entrar">Entrar</string>
+    <string name="criar_conta">Ainda não tem conta? Cadastre-se</string>
+    <string name="titulo_cadastro">Criar conta</string>
+    <string name="descricao_cadastro">Crie sua conta para montar sua estante. Os dados ficam salvos neste aparelho.</string>
+    <string name="nome">Nome</string>
+    <string name="confirmar_senha">Confirmar senha</string>
+    <string name="ajuda_senha">Mínimo de 6 caracteres</string>
+    <string name="cadastrar">Cadastrar</string>
+    <string name="conta_criada">Conta criada! Agora é só entrar.</string>
+    <string name="erro_informe_email">Informe o e-mail</string>
+    <string name="erro_email_invalido">E-mail inválido</string>
+    <string name="erro_informe_senha">Informe a senha</string>
+    <string name="erro_email_em_uso">Já existe uma conta com este e-mail</string>
+    <string name="titulo_falha_login">Não foi possível entrar</string>
+    <string name="erro_login_incorreto">E-mail ou senha incorretos.</string>
+
+    <!-- Principal -->
+    <string name="nav_estante">Estante</string>
+    <string name="nav_desejos">Desejos</string>
+    <string name="titulo_estante">Minha estante</string>
+    <string name="titulo_desejos">Desejos</string>
+    <string name="nav_recomendacoes">Para você</string>
+    <string name="nav_perfil">Perfil</string>
+    <string name="estante_vazia">Sua estante está vazia.\nToque no botão + para adicionar seu primeiro livro.</string>
+    <string name="recomendacoes_em_breve">Em breve: sugestões de livros com base nos livros que você mais gostou.</string>
+    <string name="sair">Sair</string>
+    <string name="confirma_sair">Deseja sair da sua conta?</string>
+
+    <!-- Estante -->
+    <string name="status_lido">Lido</string>
+    <string name="status_lendo">Lendo</string>
+    <string name="status_quero_ler">Quero ler</string>
+    <string name="filtro_todos">Todos</string>
+    <string name="filtro_lidos">Lidos</string>
+    <string name="filtro_vazio">Nenhum livro com este status.</string>
+    <string name="lendo_agora">LENDO AGORA</string>
+    <string name="paginas_total">%1$d páginas</string>
+    <string name="inicio_resumo">Desde %1$s</string>
+    <string name="nota_resumo">★ %1$s</string>
+    <string name="novo_livro">Novo livro</string>
+
+    <!-- Formulário de livro -->
+    <string name="titulo_novo_livro">Novo livro</string>
+    <string name="titulo_editar_livro">Editar livro</string>
+    <string name="titulo_obrigatorio">Título *</string>
+    <string name="autor_obrigatorio">Autor *</string>
+    <string name="isbn">ISBN (opcional)</string>
+    <string name="ajuda_isbn">10 ou 13 dígitos; usado para consultar o preço</string>
+    <string name="categoria">Categoria</string>
+    <string name="paginas">Páginas</string>
+    <string name="status_leitura">Status de leitura</string>
+    <string name="sua_nota">Sua nota</string>
+    <string name="data_inicio">Data de início</string>
+    <string name="data_conclusao">Data de conclusão</string>
+    <string name="comentario">Comentário</string>
+    <string name="salvar">Salvar</string>
+    <string name="corrija_campos">Corrija os campos destacados</string>
+    <string name="erro_paginas">Informe um número inteiro</string>
+    <string name="erro_isbn_repetido">Você já tem um livro com este ISBN na estante</string>
+    <string name="livro_adicionado">Livro adicionado à estante</string>
+    <string name="livro_atualizado">Livro atualizado</string>
+    <string name="livro_nao_encontrado">Livro não encontrado</string>
+
+    <!-- Detalhe do livro -->
+    <string name="titulo_detalhe_livro">Detalhes do livro</string>
+    <string name="info_isbn">ISBN: %1$s</string>
+    <string name="info_categoria">Categoria: %1$s</string>
+    <string name="info_paginas">Páginas: %1$d</string>
+    <string name="info_inicio">Início da leitura: %1$s</string>
+    <string name="info_conclusao">Concluído em: %1$s</string>
+    <string name="info_nota">Nota: %1$s de 5</string>
+    <string name="info_vazia">Sem outras informações cadastradas.</string>
+    <string name="compartilhar">Compartilhar</string>
+    <string name="compartilhar_com">Compartilhar livro com…</string>
+    <string name="compartilhar_lido">Terminei de ler \"%1$s\", de %2$s%3$s. Organizo minhas leituras no Booki!</string>
+    <string name="compartilhar_nota">, e dei nota %1$s de 5</string>
+    <string name="compartilhar_lendo">Estou lendo \"%1$s\", de %2$s. Organizo minhas leituras no Booki!</string>
+    <string name="compartilhar_quero_ler">\"%1$s\", de %2$s, está na minha lista de leitura do Booki!</string>
+    <string name="editar">Editar</string>
+    <string name="excluir">Excluir</string>
+    <string name="excluir_livro">Excluir livro</string>
+    <string name="confirma_excluir">Excluir \"%1$s\" da sua estante? Essa ação não pode ser desfeita.</string>
+    <string name="livro_excluido">Livro excluído</string>
+
+    <!-- Internet / APIs -->
+    <string name="sem_internet_titulo">Sem conexão</string>
+    <string name="sem_internet_msg">Não foi possível acessar a internet. Verifique o Wi-Fi ou os dados móveis e tente de novo.</string>
+    <string name="servico_indisponivel_titulo">Serviço indisponível</string>
+    <string name="servico_indisponivel_msg">O serviço de livros não respondeu agora (código %1$d). Tente mais tarde.</string>
+    <string name="buscar_isbn">Buscar dados pelo ISBN</string>
+    <string name="erro_isbn_para_busca">Digite um ISBN válido para buscar</string>
+    <string name="isbn_nao_encontrado_titulo">ISBN não encontrado</string>
+    <string name="isbn_nao_encontrado_msg">Não encontramos esse ISBN na Open Library. Preencha os dados manualmente.</string>
+    <string name="dados_preenchidos">Dados preenchidos pela Open Library</string>
+
+    <!-- Desejos e busca de preços -->
+    <string name="aba_pesquisar">Pesquisar</string>
+    <string name="aba_lista_desejos">Lista de desejos</string>
+    <string name="hint_buscar_livros">Buscar por título, autor ou ISBN</string>
+    <string name="autor_desconhecido">Autor não informado</string>
+    <string name="preco_indisponivel_item">Preço indisponível</string>
+    <string name="consultar_preco_loja">Consultar preço na loja</string>
+    <string name="btn_ver_loja">Ver loja</string>
+    <string name="btn_add_desejos">+ Desejos</string>
+    <string name="btn_salvo">Salvo</string>
+    <string name="btn_remover">Remover</string>
+    <string name="desejo_salvo">Livro adicionado à lista de desejos</string>
+    <string name="desejo_ja_salvo">Este livro já está na sua lista de desejos</string>
+    <string name="desejo_removido">Removido da lista de desejos</string>
+    <string name="remover_desejo_titulo">Remover da lista</string>
+    <string name="confirma_remover_desejo">Remover \"%1$s\" da sua lista de desejos?</string>
+    <string name="pesquisa_inicial">Digite um título, autor ou ISBN para pesquisar livros e valores.</string>
+    <string name="pesquisa_vazia">Nenhum livro encontrado para esta busca.</string>
+    <string name="pesquisa_termo_vazio">Digite um título, autor ou ISBN para pesquisar</string>
+    <string name="pesquisa_indisponivel">Não foi possível consultar os livros agora (código %1$d). Tente mais tarde.</string>
+    <string name="desejos_vazios">Sua lista de desejos está vazia.\nUse a aba Pesquisar para encontrar e salvar livros.</string>
+    <string name="adicionado_em">Salvo em %1$s</string>
+    <string name="erro_abrir_navegador">Não foi possível abrir o navegador neste aparelho.</string>
+    <string name="buscar_livro_titulo">Buscar livro por palavras-chave</string>
+    <string name="hint_buscar_livro_form">Buscar livro por título, autor ou palavras-chave</string>
+    <string name="erro_busca_form_vazia">Digite um título, autor ou palavra-chave para buscar</string>
+    <string name="escolher_livro_titulo">Escolha um livro encontrado</string>
+    <string name="subtitulo_escolher_livro">Toque em um livro para preencher os dados automaticamente.</string>
+    <string name="dados_preenchidos_busca">Dados preenchidos pela busca</string>
+
+    <!-- Capas de livros -->
+    <string name="capa_livro">Capa do livro</string>
+    <string name="subtitulo_capa_livro">Opcional: preenchida pela busca, galeria ou câmera</string>
+    <string name="adicionar_capa">Adicionar capa</string>
+    <string name="alterar_capa">Alterar capa</string>
+    <string name="remover_capa">Remover</string>
+    <string name="escolher_capa_titulo">Capa do livro</string>
+    <string name="escolher_galeria">Escolher da galeria</string>
+    <string name="tirar_foto">Tirar foto</string>
+    <string name="capa_atualizada">Capa atualizada</string>
+    <string name="erro_salvar_capa">Não foi possível carregar a imagem selecionada.</string>
+    <string name="permissao_camera_negada">Permissão de câmera necessária para tirar foto da capa.</string>
+    <string name="camera_indisponivel">Não foi possível abrir a câmera neste aparelho.</string>
 </resources>
+

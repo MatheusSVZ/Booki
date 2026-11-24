@@ -1,0 +1,410 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/raizLivroForm"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/booki_fundo"
+    android:orientation="vertical">
+
+    <com.google.android.material.appbar.MaterialToolbar
+        android:id="@+id/toolbarLivroForm"
+        style="@style/Booki.Toolbar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:minHeight="?attr/actionBarSize"
+        app:navigationIcon="@drawable/ic_voltar" />
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:padding="20dp">
+
+            <!-- Busca opcional por palavras-chave (Google Books + fallback Open Library) -->
+            <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/campoBuscaLivroForm"
+                style="@style/Booki.CampoTexto"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="@string/hint_buscar_livro_form"
+                app:endIconContentDescription="@string/buscar_livro_titulo"
+                app:endIconDrawable="@drawable/ic_buscar"
+                app:endIconMode="custom"
+                app:endIconTint="@color/booki_primaria">
+
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/editBuscaLivroForm"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:imeOptions="actionSearch"
+                    android:inputType="text"
+                    android:maxLines="1"
+                    android:textColor="@color/booki_texto" />
+            </com.google.android.material.textfield.TextInputLayout>
+
+            <ProgressBar
+                android:id="@+id/progressoBuscaForm"
+                style="?android:attr/progressBarStyleHorizontal"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="6dp"
+                android:indeterminate="true"
+                android:indeterminateTint="@color/booki_primaria"
+                android:visibility="gone" />
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:layout_marginVertical="16dp"
+                android:background="@color/booki_borda" />
+
+            <!-- Capa do livro (preview + galeria/câmera) -->
+            <com.google.android.material.card.MaterialCardView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="16dp"
+                app:cardBackgroundColor="@color/booki_superficie"
+                app:cardCornerRadius="16dp"
+                app:cardElevation="0dp"
+                app:strokeColor="@color/booki_borda"
+                app:strokeWidth="1dp">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:gravity="center_vertical"
+                    android:orientation="horizontal"
+                    android:padding="14dp">
+
+                    <com.google.android.material.card.MaterialCardView
+                        android:layout_width="76dp"
+                        android:layout_height="110dp"
+                        app:cardBackgroundColor="@color/booki_card_suave"
+                        app:cardCornerRadius="12dp"
+                        app:cardElevation="0dp"
+                        app:strokeColor="@color/booki_borda"
+                        app:strokeWidth="1dp">
+
+                        <ImageView
+                            android:id="@+id/imgPlaceholderCapaForm"
+                            android:layout_width="32dp"
+                            android:layout_height="32dp"
+                            android:layout_gravity="center"
+                            android:contentDescription="@null"
+                            android:src="@drawable/ic_estante"
+                            app:tint="@color/booki_primaria" />
+
+                        <ImageView
+                            android:id="@+id/imgCapaForm"
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:contentDescription="@string/capa_livro"
+                            android:scaleType="centerCrop"
+                            android:visibility="gone" />
+                    </com.google.android.material.card.MaterialCardView>
+
+                    <LinearLayout
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="16dp"
+                        android:layout_weight="1"
+                        android:orientation="vertical">
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="@string/capa_livro"
+                            android:textColor="@color/booki_texto"
+                            android:textSize="15sp"
+                            android:textStyle="bold" />
+
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="2dp"
+                            android:text="@string/subtitulo_capa_livro"
+                            android:textColor="@color/booki_texto_secundario"
+                            android:textSize="12sp" />
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="10dp"
+                            android:gravity="center_vertical"
+                            android:orientation="horizontal">
+
+                            <com.google.android.material.button.MaterialButton
+                                android:id="@+id/btnAlterarCapa"
+                                style="@style/Widget.Material3.Button.OutlinedButton"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="@string/adicionar_capa"
+                                android:textColor="@color/booki_primaria"
+                                android:textSize="13sp"
+                                app:cornerRadius="12dp"
+                                app:strokeColor="@color/booki_primaria" />
+
+                            <com.google.android.material.button.MaterialButton
+                                android:id="@+id/btnRemoverCapa"
+                                style="@style/Widget.Material3.Button.TextButton"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_marginStart="4dp"
+                                android:text="@string/remover_capa"
+                                android:textColor="@color/booki_coral"
+                                android:textSize="13sp"
+                                android:visibility="gone" />
+                        </LinearLayout>
+                    </LinearLayout>
+                </LinearLayout>
+            </com.google.android.material.card.MaterialCardView>
+
+            <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/campoTitulo"
+                style="@style/Booki.CampoTexto"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="@string/titulo_obrigatorio"
+                app:counterEnabled="true"
+                app:counterMaxLength="150">
+
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/editTitulo"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:inputType="textCapSentences"
+                    android:maxLength="150"
+                    android:textColor="@color/booki_texto" />
+            </com.google.android.material.textfield.TextInputLayout>
+
+            <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/campoAutor"
+                style="@style/Booki.CampoTexto"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/espaco_campos"
+                android:hint="@string/autor_obrigatorio">
+
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/editAutor"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:inputType="textPersonName|textCapWords"
+                    android:maxLength="120"
+                    android:textColor="@color/booki_texto" />
+            </com.google.android.material.textfield.TextInputLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/espaco_campos"
+                android:orientation="horizontal">
+
+                <com.google.android.material.textfield.TextInputLayout
+                    android:id="@+id/campoCategoria"
+                    style="@style/Booki.CampoTexto"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="2"
+                    android:hint="@string/categoria">
+
+                    <com.google.android.material.textfield.TextInputEditText
+                        android:id="@+id/editCategoria"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:inputType="textCapSentences"
+                        android:maxLength="60"
+                        android:textColor="@color/booki_texto" />
+                </com.google.android.material.textfield.TextInputLayout>
+
+                <com.google.android.material.textfield.TextInputLayout
+                    android:id="@+id/campoPaginas"
+                    style="@style/Booki.CampoTexto"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="8dp"
+                    android:layout_weight="1"
+                    android:hint="@string/paginas">
+
+                    <com.google.android.material.textfield.TextInputEditText
+                        android:id="@+id/editPaginas"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:inputType="number"
+                        android:maxLength="5"
+                        android:textColor="@color/booki_texto" />
+                </com.google.android.material.textfield.TextInputLayout>
+            </LinearLayout>
+
+            <com.google.android.material.card.MaterialCardView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="16dp"
+                app:cardBackgroundColor="@color/booki_superficie"
+                app:cardCornerRadius="16dp"
+                app:cardElevation="0dp"
+                app:strokeColor="@color/booki_borda"
+                app:strokeWidth="1dp">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:padding="16dp">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/status_leitura"
+                        android:textColor="@color/booki_texto"
+                        android:textSize="14sp"
+                        android:textStyle="bold" />
+
+                    <RadioGroup
+                        android:id="@+id/grupoStatus"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="4dp"
+                        android:orientation="vertical">
+
+                        <RadioButton
+                            android:id="@+id/radioQueroLer"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:checked="true"
+                            android:text="@string/status_quero_ler"
+                            android:textColor="@color/booki_texto" />
+
+                        <RadioButton
+                            android:id="@+id/radioLendo"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="@string/status_lendo"
+                            android:textColor="@color/booki_texto" />
+
+                        <RadioButton
+                            android:id="@+id/radioLido"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="@string/status_lido"
+                            android:textColor="@color/booki_texto" />
+                    </RadioGroup>
+
+                    <!-- Só aparece para livros lidos -->
+                    <LinearLayout
+                        android:id="@+id/painelNota"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="12dp"
+                        android:orientation="vertical"
+                        android:visibility="gone">
+
+                        <TextView
+                            android:id="@+id/txtNota"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="@string/sua_nota"
+                            android:textColor="@color/booki_texto"
+                            android:textSize="14sp"
+                            android:textStyle="bold" />
+
+                        <RatingBar
+                            android:id="@+id/ratingNota"
+                            style="?android:attr/ratingBarStyle"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="4dp"
+                            android:isIndicator="false"
+                            android:numStars="5"
+                            android:progressTint="@color/booki_secundaria"
+                            android:rating="0"
+                            android:stepSize="0.5" />
+
+                        <TextView
+                            android:id="@+id/txtErroNota"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:textColor="?attr/colorError"
+                            android:visibility="gone" />
+                    </LinearLayout>
+                </LinearLayout>
+            </com.google.android.material.card.MaterialCardView>
+
+            <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/campoDataInicio"
+                style="@style/Booki.CampoTexto"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="16dp"
+                android:hint="@string/data_inicio"
+                app:endIconMode="clear_text"
+                app:startIconDrawable="@drawable/ic_calendario">
+
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/editDataInicio"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:focusable="false"
+                    android:inputType="none"
+                    android:textColor="@color/booki_texto" />
+            </com.google.android.material.textfield.TextInputLayout>
+
+            <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/campoDataConclusao"
+                style="@style/Booki.CampoTexto"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/espaco_campos"
+                android:hint="@string/data_conclusao"
+                android:visibility="gone"
+                app:endIconMode="clear_text"
+                app:startIconDrawable="@drawable/ic_calendario">
+
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/editDataConclusao"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:focusable="false"
+                    android:inputType="none"
+                    android:textColor="@color/booki_texto" />
+            </com.google.android.material.textfield.TextInputLayout>
+
+            <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/campoComentario"
+                style="@style/Booki.CampoTexto"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/espaco_campos"
+                android:hint="@string/comentario"
+                app:counterEnabled="true"
+                app:counterMaxLength="500">
+
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/editComentario"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:gravity="top"
+                    android:inputType="textMultiLine|textCapSentences"
+                    android:maxLength="500"
+                    android:minLines="3"
+                    android:textColor="@color/booki_texto" />
+            </com.google.android.material.textfield.TextInputLayout>
+
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/btnSalvarLivro"
+                style="@style/Booki.BotaoPrimario"
+                android:layout_width="match_parent"
+                android:layout_height="60dp"
+                android:layout_marginTop="24dp"
+                android:text="@string/salvar"
+                android:textSize="17sp" />
+        </LinearLayout>
+    </ScrollView>
+</LinearLayout>
+

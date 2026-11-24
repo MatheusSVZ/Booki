@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Etiqueta arredondada do status; a cor é trocada pelo código -->
+<shape xmlns:android="http://schemas.android.com/apk/res/android" android:shape="rectangle">
+    <corners android:radius="12dp" />
+    <solid android:color="@color/booki_primaria" />
+</shape>

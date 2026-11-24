@@ -1,5 +1,25 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <color name="black">#FF000000</color>
-    <color name="white">#FFFFFFFF</color>
+    <!-- Identidade visual Booki! (paleta da Millena) -->
+    <color name="booki_primaria">#0F5C5C</color>
+    <color name="booki_primaria_escura">#0A3F3F</color>
+    <color name="booki_secundaria">#F2A33A</color>
+    <color name="booki_coral">#E8634A</color>
+    <color name="booki_fundo">#FBF6EC</color>
+    <color name="booki_superficie">#FFFFFF</color>
+    <color name="booki_borda">#E6DCC8</color>
+    <color name="booki_texto">#16302F</color>
+    <color name="booki_texto_secundario">#3F5755</color>
+    <color name="booki_texto_claro">#DCE3E1</color>
+    <color name="booki_indicador_nav">#E3EFEF</color>
+    <color name="booki_card_suave">#F3EBDC</color>
+
+    <!-- Cores dos status de leitura -->
+    <color name="status_lido">#0F5C5C</color>
+    <color name="status_lendo">#F2A33A</color>
+    <color name="status_quero_ler">#E8634A</color>
+
+    <color name="white">#FFFFFF</color>
+    <color name="black">#000000</color>
 </resources>
+

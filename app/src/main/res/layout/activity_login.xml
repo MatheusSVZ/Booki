@@ -1,123 +1,107 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout
-    xmlns:android="http://schemas.android.com/apk/res/android"
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/raizLogin"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#FBF6EC"
-    android:padding="24dp"
-    tools:context=".LoginActivity">
+    android:background="@color/booki_fundo"
+    android:fillViewport="true">
 
-    <!-- LOGO DO APP -->
-    <ImageView
-        android:id="@+id/ivAppLogo"
-        android:layout_width="120dp"
-        android:layout_height="120dp"
-        android:layout_marginTop="48dp"
-        android:src="@drawable/logo_booki"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        android:contentDescription="Logotipo Booki" />
-
-    <TextView
-        android:id="@+id/tvAppTitle"
-        android:layout_width="wrap_content"
+    <LinearLayout
+        android:id="@+id/conteudoLogin"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Booki!"
-        android:textColor="#0F5C5C"
-        android:textSize="40sp"
-        android:textStyle="bold"
-        android:layout_marginTop="12dp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/ivAppLogo" />
+        android:gravity="center_horizontal"
+        android:orientation="vertical"
+        android:padding="24dp">
 
-    <TextView
-        android:id="@+id/tvSubtitle"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="4dp"
-        android:text="Sua estante virtual"
-        android:textColor="#3F5755"
-        android:textSize="16sp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/tvAppTitle" />
+        <!-- Logo do app -->
+        <ImageView
+            android:id="@+id/ivAppLogo"
+            android:layout_width="120dp"
+            android:layout_height="120dp"
+            android:layout_marginTop="36dp"
+            android:contentDescription="@string/app_name"
+            android:src="@drawable/logo_booki" />
 
-    <!-- Campo E-mail -->
-    <com.google.android.material.textfield.TextInputLayout
-        android:id="@+id/tilEmail"
-        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="32dp"
-        android:hint="E-mail"
-        app:boxStrokeColor="#0F5C5C"
-        app:hintTextColor="#0F5C5C"
-        app:boxCornerRadiusTopStart="12dp"
-        app:boxCornerRadiusTopEnd="12dp"
-        app:boxCornerRadiusBottomStart="12dp"
-        app:boxCornerRadiusBottomEnd="12dp"
-        app:startIconDrawable="@android:drawable/ic_dialog_email"
-        app:startIconTint="#3F5755"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/tvSubtitle">
+        <TextView
+            android:id="@+id/tvAppTitle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="12dp"
+            android:text="@string/app_name"
+            android:textColor="@color/booki_primaria"
+            android:textSize="40sp"
+            android:textStyle="bold" />
 
-        <com.google.android.material.textfield.TextInputEditText
-            android:id="@+id/etEmail"
+        <TextView
+            android:id="@+id/tvSubtitle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="4dp"
+            android:text="@string/slogan"
+            android:textColor="@color/booki_texto_secundario"
+            android:textSize="16sp" />
+
+        <!-- Campo E-mail -->
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/campoEmailLogin"
+            style="@style/Booki.CampoTexto"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:textColor="#16302F"
-            android:inputType="textEmailAddress" />
-    </com.google.android.material.textfield.TextInputLayout>
+            android:layout_marginTop="32dp"
+            android:hint="@string/email"
+            app:startIconDrawable="@drawable/ic_email">
 
-    <!-- Campo Senha -->
-    <com.google.android.material.textfield.TextInputLayout
-        android:id="@+id/tilPassword"
-        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="16dp"
-        android:hint="Senha"
-        app:boxStrokeColor="#0F5C5C"
-        app:hintTextColor="#0F5C5C"
-        app:boxCornerRadiusTopStart="12dp"
-        app:boxCornerRadiusTopEnd="12dp"
-        app:boxCornerRadiusBottomStart="12dp"
-        app:boxCornerRadiusBottomEnd="12dp"
-        app:passwordToggleEnabled="true"
-        app:passwordToggleTint="#3F5755"
-        app:startIconDrawable="@android:drawable/ic_lock_idle_lock"
-        app:startIconTint="#3F5755"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/tilEmail">
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/editEmailLogin"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:inputType="textEmailAddress"
+                android:maxLines="1"
+                android:textColor="@color/booki_texto" />
+        </com.google.android.material.textfield.TextInputLayout>
 
-        <com.google.android.material.textfield.TextInputEditText
-            android:id="@+id/etPassword"
+        <!-- Campo Senha -->
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/campoSenhaLogin"
+            style="@style/Booki.CampoTexto"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:textColor="#16302F"
-            android:inputType="textPassword" />
-    </com.google.android.material.textfield.TextInputLayout>
+            android:layout_marginTop="16dp"
+            android:hint="@string/senha"
+            app:endIconMode="password_toggle"
+            app:startIconDrawable="@drawable/ic_senha">
 
-    <!-- Botão Entrar -->
-    <com.google.android.material.button.MaterialButton
-        android:id="@+id/btnLogin"
-        android:layout_width="0dp"
-        android:layout_height="60dp"
-        android:layout_marginTop="28dp"
-        android:text="Entrar"
-        android:textColor="#16302F"
-        android:textSize="18sp"
-        android:textStyle="bold"
-        app:backgroundTint="#F2A33A"
-        app:cornerRadius="12dp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/tilPassword" />
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/editSenhaLogin"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:imeOptions="actionDone"
+                android:inputType="textPassword"
+                android:maxLines="1"
+                android:textColor="@color/booki_texto" />
+        </com.google.android.material.textfield.TextInputLayout>
 
-</androidx.constraintlayout.widget.ConstraintLayout>
+        <!-- Botão Entrar -->
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/btnEntrar"
+            style="@style/Booki.BotaoPrimario"
+            android:layout_width="match_parent"
+            android:layout_height="60dp"
+            android:layout_marginTop="28dp"
+            android:text="@string/entrar"
+            android:textSize="18sp" />
+
+        <!-- Link para cadastro de conta -->
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/btnIrCadastro"
+            style="@style/Widget.Material3.Button.TextButton"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="12dp"
+            android:text="@string/criar_conta"
+            android:textColor="@color/booki_primaria" />
+    </LinearLayout>
+</ScrollView>
+

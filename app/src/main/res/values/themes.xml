@@ -1,9 +1,74 @@
-<resources xmlns:tools="http://schemas.android.com/tools">
-    <!-- Base application theme. -->
-    <style name="Base.Theme.Booki" parent="Theme.Material3.DayNight.NoActionBar">
-        <!-- Customize your light theme here. -->
-        <!-- <item name="colorPrimary">@color/my_light_primary</item> -->
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <style name="Theme.Booki" parent="Theme.Material3.Light.NoActionBar">
+        <item name="colorPrimary">@color/booki_primaria</item>
+        <item name="colorOnPrimary">@color/white</item>
+        <item name="colorPrimaryContainer">@color/booki_indicador_nav</item>
+        <item name="colorOnPrimaryContainer">@color/booki_texto</item>
+        <item name="colorSecondary">@color/booki_secundaria</item>
+        <item name="colorOnSecondary">@color/booki_texto</item>
+        <item name="colorSecondaryContainer">#FCE4C2</item>
+        <item name="colorOnSecondaryContainer">@color/booki_texto</item>
+        <item name="android:colorBackground">@color/booki_fundo</item>
+        <item name="colorSurface">@color/booki_superficie</item>
+        <item name="colorSurfaceVariant">@color/booki_card_suave</item>
+        <item name="colorOnSurface">@color/booki_texto</item>
+        <item name="colorOnSurfaceVariant">@color/booki_texto_secundario</item>
+        <item name="colorOutline">@color/booki_borda</item>
+        <item name="android:statusBarColor">@color/booki_fundo</item>
+        <item name="android:windowLightStatusBar">true</item>
     </style>
 
-    <style name="Theme.Booki" parent="Base.Theme.Booki" />
+    <!-- Toolbar verde-petróleo alinhada à identidade visual Booki! -->
+    <style name="Booki.Toolbar" parent="Widget.Material3.Toolbar">
+        <item name="android:background">@color/booki_primaria</item>
+        <item name="titleTextColor">@color/white</item>
+        <item name="subtitleTextColor">@color/booki_texto_claro</item>
+        <item name="navigationIconTint">@color/white</item>
+    </style>
+
+    <style name="Booki.Titulo" parent="TextAppearance.Material3.HeadlineSmall">
+        <item name="android:textColor">@color/booki_texto</item>
+        <item name="android:textStyle">bold</item>
+    </style>
+
+    <!-- Botão principal laranja com cantos arredondados -->
+    <style name="Booki.BotaoPrimario" parent="Widget.Material3.Button">
+        <item name="backgroundTint">@color/booki_secundaria</item>
+        <item name="android:textColor">@color/booki_texto</item>
+        <item name="android:textSize">16sp</item>
+        <item name="android:textStyle">bold</item>
+        <item name="cornerRadius">12dp</item>
+        <item name="android:minHeight">56dp</item>
+    </style>
+
+    <!-- Campo de texto contornado com cantos de 12dp e foco verde-petróleo -->
+    <style name="Booki.CampoTexto" parent="Widget.Material3.TextInputLayout.OutlinedBox">
+        <item name="boxBackgroundColor">@color/booki_superficie</item>
+        <item name="boxStrokeColor">@color/booki_primaria</item>
+        <item name="hintTextColor">@color/booki_primaria</item>
+        <item name="boxCornerRadiusTopStart">12dp</item>
+        <item name="boxCornerRadiusTopEnd">12dp</item>
+        <item name="boxCornerRadiusBottomStart">12dp</item>
+        <item name="boxCornerRadiusBottomEnd">12dp</item>
+        <item name="startIconTint">@color/booki_texto_secundario</item>
+        <item name="endIconTint">@color/booki_texto_secundario</item>
+    </style>
+
+    <!-- Chips de filtro no formato pílula da estante -->
+    <style name="Booki.ChipFiltro" parent="Widget.Material3.Chip.Filter">
+        <item name="chipBackgroundColor">@color/chip_bg_cor</item>
+        <item name="android:textColor">@color/chip_text_cor</item>
+        <item name="chipStrokeColor">@color/chip_stroke_cor</item>
+        <item name="chipStrokeWidth">1dp</item>
+        <item name="chipCornerRadius">20dp</item>
+        <item name="checkedIconVisible">false</item>
+        <item name="chipMinHeight">38dp</item>
+    </style>
+
+    <!-- Indicador suave da barra de navegação inferior -->
+    <style name="Booki.NavIndicator" parent="Widget.Material3.BottomNavigationView.ActiveIndicator">
+        <item name="android:color">@color/booki_indicador_nav</item>
+    </style>
 </resources>
+

@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<paths>
+    <cache-path
+        name="camera_capas"
+        path="camera/" />
+    <files-path
+        name="capas_salvas"
+        path="capas/" />
+</paths>
+
