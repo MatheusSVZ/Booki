@@ -1,6 +1,5 @@
 <resources>
     <string name="app_name">Booki!</string>
-    <string name="slogan">Sua estante virtual</string>
     <string name="ok">OK</string>
     <string name="sim">Sim</string>
     <string name="nao">Não</string>
@@ -111,8 +110,6 @@
     <string name="aba_lista_desejos">Lista de desejos</string>
     <string name="hint_buscar_livros">Buscar por título, autor ou ISBN</string>
     <string name="autor_desconhecido">Autor não informado</string>
-    <string name="preco_indisponivel_item">Preço indisponível</string>
-    <string name="consultar_preco_loja">Consultar preço na loja</string>
     <string name="btn_ver_loja">Ver loja</string>
     <string name="btn_add_desejos">+ Desejos</string>
     <string name="btn_salvo">Salvo</string>

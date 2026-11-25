@@ -8,7 +8,7 @@
 
 ## Estante e cadastro de livros
 
-| Lista de Desejos                                 | Novo livro (Lido, com nota e datas)     | Busca de livro                              |
+| Lista de Desejos                                 | Novo Livro                              | Busca de livro                              |
 | ------------------------------------------------ | --------------------------------------- | ------------------------------------------- |
 | ![Lista de desejos](prints/04-lista-desejos.jpg) | ![Formulário](prints/05-livro-form.jpg) | ![Buscar Livro](prints/06-buscar-livro.jpg) |
 

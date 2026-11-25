@@ -79,15 +79,13 @@ class PesquisaLivroAdapter(
                 meta.visibility = View.GONE
             }
 
-            if (livro.precoTexto != null) {
-                preco.text = livro.precoTexto
-                preco.setTextColor(ContextCompat.getColor(context, R.color.booki_primaria))
-            } else if (livro.origemFallback) {
-                preco.setText(R.string.consultar_preco_loja)
-                preco.setTextColor(ContextCompat.getColor(context, R.color.booki_primaria))
+            val precoReal = livro.precoTexto?.trim()?.takeIf { it.any { c -> c.isDigit() } }
+            if (precoReal != null) {
+                preco.text = precoReal
+                preco.visibility = View.VISIBLE
             } else {
-                preco.setText(R.string.preco_indisponivel_item)
-                preco.setTextColor(ContextCompat.getColor(context, R.color.booki_texto_secundario))
+                preco.text = ""
+                preco.visibility = View.GONE
             }
 
             btnVerLoja.setOnClickListener { aoVerLoja(livro) }

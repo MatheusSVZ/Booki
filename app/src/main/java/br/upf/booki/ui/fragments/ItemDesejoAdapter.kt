@@ -5,7 +5,6 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.ImageView
 import android.widget.TextView
-import androidx.core.content.ContextCompat
 import androidx.recyclerview.widget.RecyclerView
 import br.upf.booki.R
 import br.upf.booki.model.ItemDesejo
@@ -55,12 +54,13 @@ class ItemDesejoAdapter(
             autor.text = item.autor.ifBlank { context.getString(R.string.autor_desconhecido) }
             data.text = context.getString(R.string.adicionado_em, Util.dataParaTexto(item.dataAdicao))
 
-            if (!item.precoTexto.isNullOrBlank()) {
-                preco.text = item.precoTexto
-                preco.setTextColor(ContextCompat.getColor(context, R.color.booki_primaria))
+            val precoReal = item.precoTexto?.trim()?.takeIf { it.any { c -> c.isDigit() } }
+            if (precoReal != null) {
+                preco.text = precoReal
+                preco.visibility = View.VISIBLE
             } else {
-                preco.setText(R.string.consultar_preco_loja)
-                preco.setTextColor(ContextCompat.getColor(context, R.color.booki_texto_secundario))
+                preco.text = ""
+                preco.visibility = View.GONE
             }
 
             btnVerLoja.setOnClickListener { aoVerLoja(item) }

@@ -34,22 +34,13 @@
             android:textSize="40sp"
             android:textStyle="bold" />
 
-        <TextView
-            android:id="@+id/tvSubtitle"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="4dp"
-            android:text="@string/slogan"
-            android:textColor="@color/booki_texto_secundario"
-            android:textSize="16sp" />
-
         <!-- Campo E-mail -->
         <com.google.android.material.textfield.TextInputLayout
             android:id="@+id/campoEmailLogin"
             style="@style/Booki.CampoTexto"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginTop="32dp"
+            android:layout_marginTop="36dp"
             android:hint="@string/email"
             app:startIconDrawable="@drawable/ic_email">
 
