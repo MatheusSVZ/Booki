@@ -15,7 +15,6 @@ import br.upf.booki.util.Sessao
 import br.upf.booki.util.Util
 import kotlinx.coroutines.launch
 
-/** Dados do usuário logado e botão de sair. */
 class PerfilFragment : Fragment() {
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View =
@@ -34,7 +33,6 @@ class PerfilFragment : Fragment() {
         view.findViewById<View>(R.id.btnSair).setOnClickListener {
             Util.dialogoConfirma(requireContext(), getString(R.string.sair), getString(R.string.confirma_sair)) {
                 sessao.sair()
-                // Limpa a pilha para o botão voltar não retornar à estante.
                 startActivity(
                     Intent(requireContext(), LoginActivity::class.java)
                         .addFlags(Intent.FLAG_ACTIVITY_NEW_TASK or Intent.FLAG_ACTIVITY_CLEAR_TASK)

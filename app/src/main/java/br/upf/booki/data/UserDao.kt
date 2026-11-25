@@ -9,11 +9,9 @@ import br.upf.booki.model.User
 @Dao
 interface UserDao {
 
-    /** Devolve o id gerado pelo Room (autoGenerate). */
     @Insert(onConflict = OnConflictStrategy.ABORT)
     suspend fun inserir(user: User): Long
 
-    /** null quando não existe usuário com esse e-mail. */
     @Query("SELECT * FROM usuarios WHERE email = :email LIMIT 1")
     suspend fun buscarPorEmail(email: String): User?
 

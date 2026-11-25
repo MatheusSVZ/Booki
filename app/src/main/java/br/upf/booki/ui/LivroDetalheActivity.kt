@@ -22,13 +22,11 @@ import br.upf.booki.util.Sessao
 import br.upf.booki.util.Util
 import kotlinx.coroutines.launch
 
-/** Mostra um livro e permite compartilhar, editar e excluir. Recebe putExtra("id", ...). */
 class LivroDetalheActivity : AppCompatActivity() {
 
     private var livroId = 0
     private var usuarioId = 0
 
-    /** Livro mostrado na tela; null enquanto carrega. */
     private var livro: Livro? = null
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -48,7 +46,6 @@ class LivroDetalheActivity : AppCompatActivity() {
         Util.aplicarMargensDoSistema(findViewById(R.id.raizLivroDetalhe), toolbar)
     }
 
-    /** Recarrega sempre que a tela volta ao primeiro plano (ex.: depois de editar). */
     override fun onResume() {
         super.onResume()
         carregar()
@@ -124,7 +121,6 @@ class LivroDetalheActivity : AppCompatActivity() {
         return true
     }
 
-    /** Intent implícita: o Android oferece os apps que sabem enviar texto. */
     private fun compartilhar(livro: Livro) {
         val texto = when (livro.status) {
             StatusLeitura.LIDO -> {

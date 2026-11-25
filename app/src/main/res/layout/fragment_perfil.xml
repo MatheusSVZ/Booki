@@ -64,7 +64,6 @@
             </LinearLayout>
         </com.google.android.material.card.MaterialCardView>
 
-        <!-- Espaço reservado para as estatísticas de leitura -->
         <LinearLayout
             android:id="@+id/painelEstatisticas"
             android:layout_width="match_parent"
@@ -88,4 +87,3 @@
             app:strokeColor="@color/booki_coral" />
     </LinearLayout>
 </ScrollView>
-

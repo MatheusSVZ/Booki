@@ -4,7 +4,6 @@
     android:height="108dp"
     android:viewportWidth="108"
     android:viewportHeight="108">
-    <!-- Livro aberto creme + marcador laranja (alinhado ao logo_booki.png) -->
     <path
         android:fillColor="#FBF6EC"
         android:pathData="M28,40 C36,36 45,36 52,40 L52,74 C45,70 36,70 28,74 Z" />
@@ -15,4 +14,3 @@
         android:fillColor="#F2A33A"
         android:pathData="M62,28 L72,28 L72,54 L67,49 L62,54 Z" />
 </vector>
-

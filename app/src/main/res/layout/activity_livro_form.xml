@@ -26,7 +26,6 @@
             android:orientation="vertical"
             android:padding="20dp">
 
-            <!-- Busca opcional por palavras-chave (Google Books + fallback Open Library) -->
             <com.google.android.material.textfield.TextInputLayout
                 android:id="@+id/campoBuscaLivroForm"
                 style="@style/Booki.CampoTexto"
@@ -64,7 +63,6 @@
                 android:layout_marginVertical="16dp"
                 android:background="@color/booki_borda" />
 
-            <!-- Capa do livro (preview + galeria/câmera) -->
             <com.google.android.material.card.MaterialCardView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
@@ -296,7 +294,6 @@
                             android:textColor="@color/booki_texto" />
                     </RadioGroup>
 
-                    <!-- Só aparece para livros lidos -->
                     <LinearLayout
                         android:id="@+id/painelNota"
                         android:layout_width="match_parent"
@@ -407,4 +404,3 @@
         </LinearLayout>
     </ScrollView>
 </LinearLayout>
-

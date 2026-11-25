@@ -26,14 +26,12 @@ interface LivroDao {
     @Query("SELECT * FROM livros WHERE usuarioId = :usuarioId AND status = :status ORDER BY titulo COLLATE NOCASE")
     suspend fun listarPorStatus(usuarioId: Int, status: StatusLeitura): List<Livro>
 
-    /** Sempre filtra pelo usuário, para ninguém abrir o livro de outra conta. */
     @Query("SELECT * FROM livros WHERE id = :id AND usuarioId = :usuarioId LIMIT 1")
     suspend fun buscarPorId(id: Int, usuarioId: Int): Livro?
 
     @Query("SELECT * FROM livros WHERE usuarioId = :usuarioId AND isbn = :isbn LIMIT 1")
     suspend fun buscarPorIsbn(usuarioId: Int, isbn: String): Livro?
 
-    /** Livros lidos com as maiores notas (base para as recomendações). */
     @Query(
         "SELECT * FROM livros WHERE usuarioId = :usuarioId AND status = 'LIDO' AND nota IS NOT NULL " +
             "ORDER BY nota DESC, dataConclusao DESC LIMIT :limite"

@@ -15,7 +15,6 @@
         android:orientation="vertical"
         android:padding="24dp">
 
-        <!-- Logo do app -->
         <ImageView
             android:id="@+id/ivAppLogo"
             android:layout_width="120dp"
@@ -34,7 +33,6 @@
             android:textSize="40sp"
             android:textStyle="bold" />
 
-        <!-- Campo E-mail -->
         <com.google.android.material.textfield.TextInputLayout
             android:id="@+id/campoEmailLogin"
             style="@style/Booki.CampoTexto"
@@ -53,7 +51,6 @@
                 android:textColor="@color/booki_texto" />
         </com.google.android.material.textfield.TextInputLayout>
 
-        <!-- Campo Senha -->
         <com.google.android.material.textfield.TextInputLayout
             android:id="@+id/campoSenhaLogin"
             style="@style/Booki.CampoTexto"
@@ -74,7 +71,6 @@
                 android:textColor="@color/booki_texto" />
         </com.google.android.material.textfield.TextInputLayout>
 
-        <!-- Botão Entrar -->
         <com.google.android.material.button.MaterialButton
             android:id="@+id/btnEntrar"
             style="@style/Booki.BotaoPrimario"
@@ -84,7 +80,6 @@
             android:text="@string/entrar"
             android:textSize="18sp" />
 
-        <!-- Link para cadastro de conta -->
         <com.google.android.material.button.MaterialButton
             android:id="@+id/btnIrCadastro"
             style="@style/Widget.Material3.Button.TextButton"
@@ -95,4 +90,3 @@
             android:textColor="@color/booki_primaria" />
     </LinearLayout>
 </ScrollView>
-

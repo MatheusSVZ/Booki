@@ -99,7 +99,6 @@
         </FrameLayout>
     </LinearLayout>
 
-    <!-- Botão flutuante (+) no estilo da Millena -->
     <com.google.android.material.floatingactionbutton.FloatingActionButton
         android:id="@+id/fabNovoLivro"
         android:layout_width="wrap_content"
@@ -111,4 +110,3 @@
         app:backgroundTint="@color/booki_secundaria"
         app:tint="@color/booki_texto" />
 </androidx.coordinatorlayout.widget.CoordinatorLayout>
-

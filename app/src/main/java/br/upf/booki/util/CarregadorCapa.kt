@@ -19,10 +19,6 @@ import java.io.FileOutputStream
 import java.net.HttpURLConnection
 import java.net.URL
 
-/**
- * Carregador nativo de capas (URLs remotas ou arquivos locais) com Coroutines,
- * BitmapFactory (redimensionamento via inSampleSize) e cache em memória LruCache.
- */
 object CarregadorCapa {
 
     private val escopo = CoroutineScope(SupervisorJob() + Dispatchers.Main.immediate)
@@ -36,11 +32,6 @@ object CarregadorCapa {
         }
     }
 
-    /**
-     * Carrega a capa de [origem] (URL https ou caminho local) em [imageView].
-     * Enquanto carrega ou se [origem] for nula/inválida, exibe o [placeholder] (quando informado)
-     * e oculta a [imageView] para manter o fallback visual do layout.
-     */
     fun carregar(
         imageView: ImageView,
         origem: String?,
@@ -76,17 +67,11 @@ object CarregadorCapa {
         }
     }
 
-    /** Cria arquivo temporário no cache do app para receber a foto da câmera via FileProvider. */
     fun criarArquivoTemporarioCamera(context: Context): File {
         val pasta = File(context.cacheDir, "camera").apply { mkdirs() }
         return File(pasta, "foto_${System.currentTimeMillis()}.jpg")
     }
 
-    /**
-     * Copia e compacta uma imagem selecionada da galeria ou capturada pela câmera
-     * para `filesDir/capas/capa_<timestamp>.jpg` (JPEG 85%, largura máxima 800px).
-     * Retorna o caminho absoluto definitivo ou null em caso de falha.
-     */
     suspend fun salvarCapaLocal(context: Context, uri: Uri, maxLarguraPx: Int = 800): String? =
         withContext(Dispatchers.IO) {
             runCatching {
@@ -216,4 +201,3 @@ object CarregadorCapa {
         return Bitmap.createBitmap(bitmap, 0, 0, bitmap.width, bitmap.height, matriz, true)
     }
 }
-

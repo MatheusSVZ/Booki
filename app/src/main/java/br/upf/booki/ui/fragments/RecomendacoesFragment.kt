@@ -8,10 +8,6 @@ import android.widget.TextView
 import androidx.fragment.app.Fragment
 import br.upf.booki.R
 
-/**
- * Recomendações com base no histórico de leitura.
- * A implementação está descrita em docs/TAREFAS-MILLENA.md (branch feature/recomendacoes).
- */
 class RecomendacoesFragment : Fragment() {
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View =

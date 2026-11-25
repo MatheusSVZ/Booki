@@ -4,11 +4,6 @@ import com.google.gson.annotations.SerializedName
 import retrofit2.http.GET
 import retrofit2.http.Query
 
-/**
- * Open Library Search API (https://openlibrary.org/dev/docs/api/search).
- * Não precisa de chave. Usada para preencher o cadastro pelo ISBN
- * e para buscar livros por autor ou assunto (recomendações).
- */
 interface OpenLibraryApi {
 
     @GET("search.json")

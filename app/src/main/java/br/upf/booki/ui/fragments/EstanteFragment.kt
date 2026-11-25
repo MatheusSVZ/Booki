@@ -19,7 +19,6 @@ import br.upf.booki.util.Sessao
 import com.google.android.material.chip.ChipGroup
 import kotlinx.coroutines.launch
 
-/** Estante do usuário: lista os livros, destaca o livro em leitura, filtra por status e abre o cadastro. */
 class EstanteFragment : Fragment() {
 
     private lateinit var adapter: LivroAdapter
@@ -49,7 +48,6 @@ class EstanteFragment : Fragment() {
         }
     }
 
-    /** Ciclo de vida: ao voltar do cadastro, edição ou exclusão, a lista é recarregada. */
     override fun onResume() {
         super.onResume()
         carregar()
@@ -75,4 +73,3 @@ class EstanteFragment : Fragment() {
         }
     }
 }
-

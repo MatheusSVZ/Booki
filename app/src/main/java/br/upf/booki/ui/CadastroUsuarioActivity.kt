@@ -18,7 +18,6 @@ import com.google.android.material.button.MaterialButton
 import com.google.android.material.textfield.TextInputLayout
 import kotlinx.coroutines.launch
 
-/** Cadastro de um novo usuário local. Devolve o e-mail cadastrado para a tela de login. */
 class CadastroUsuarioActivity : AppCompatActivity() {
 
     private lateinit var campos: Map<Campo, TextInputLayout>
@@ -39,7 +38,6 @@ class CadastroUsuarioActivity : AppCompatActivity() {
             Campo.SENHA to findViewById(R.id.campoSenha),
             Campo.CONFIRMACAO to findViewById(R.id.campoConfirmacao)
         )
-        // O erro de cada campo some assim que o usuário volta a digitar nele.
         campos.values.forEach { campo -> campo.editText?.doAfterTextChanged { campo.error = null } }
         btnCadastrar = findViewById(R.id.btnCadastrar)
         btnCadastrar.setOnClickListener { cadastrar() }
@@ -60,7 +58,6 @@ class CadastroUsuarioActivity : AppCompatActivity() {
         btnCadastrar.isEnabled = false
         lifecycleScope.launch {
             val dao = AppDatabase.getInstance(this@CadastroUsuarioActivity).userDao()
-            // Regra de negócio: um e-mail só pode ter uma conta.
             val emailEmUso = dao.buscarPorEmail(email) != null
             val salvou = !emailEmUso && try {
                 dao.inserir(User(nome = nome, email = email, senhaHash = Senha.hash(senha, email)))

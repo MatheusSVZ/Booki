@@ -9,7 +9,6 @@ import br.upf.booki.model.ItemDesejo
 import br.upf.booki.model.Livro
 import br.upf.booki.model.User
 
-/** Banco único do app (singleton): todas as telas usam a mesma instância. */
 @Database(entities = [User::class, Livro::class, ItemDesejo::class], version = 4, exportSchema = false)
 @TypeConverters(Conversores::class)
 abstract class AppDatabase : RoomDatabase() {
@@ -31,7 +30,6 @@ abstract class AppDatabase : RoomDatabase() {
                     AppDatabase::class.java,
                     "booki.db"
                 )
-                    // Projeto acadêmico: ao mudar a versão do banco, recria as tabelas.
                     .fallbackToDestructiveMigration(true)
                     .build()
                     .also { instancia = it }

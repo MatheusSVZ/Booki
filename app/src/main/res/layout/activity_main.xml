@@ -7,7 +7,6 @@
     android:background="@color/booki_fundo"
     android:orientation="vertical">
 
-    <!-- Cabeçalho com logotipo Booki! (design da Millena) -->
     <LinearLayout
         android:id="@+id/headerBooki"
         android:layout_width="match_parent"
@@ -36,14 +35,12 @@
             android:textStyle="bold" />
     </LinearLayout>
 
-    <!-- Os fragments (Estante, Para você e Perfil) são trocados aqui -->
     <FrameLayout
         android:id="@+id/containerFragments"
         android:layout_width="match_parent"
         android:layout_height="0dp"
         android:layout_weight="1" />
 
-    <!-- Menu inferior com 3 abas funcionais no estilo visual claro da Millena -->
     <com.google.android.material.bottomnavigation.BottomNavigationView
         android:id="@+id/navegacaoInferior"
         android:layout_width="match_parent"
@@ -56,4 +53,3 @@
         app:labelVisibilityMode="labeled"
         app:menu="@menu/menu_navegacao" />
 </LinearLayout>
-

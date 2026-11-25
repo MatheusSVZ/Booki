@@ -12,7 +12,6 @@ import br.upf.booki.util.CarregadorCapa
 import br.upf.booki.util.Util
 import com.google.android.material.button.MaterialButton
 
-/** Adapter dos livros salvos na Lista de Desejos do usuário (Room). */
 class ItemDesejoAdapter(
     private val aoVerLoja: (ItemDesejo) -> Unit,
     private val aoRemover: (ItemDesejo) -> Unit
@@ -68,4 +67,3 @@ class ItemDesejoAdapter(
         }
     }
 }
-

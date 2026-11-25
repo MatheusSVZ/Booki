@@ -17,7 +17,6 @@ import br.upf.booki.util.Util
 import com.google.android.material.bottomnavigation.BottomNavigationView
 import kotlinx.coroutines.launch
 
-/** Tela principal: a barra inferior troca entre Estante, Desejos, Para você e Perfil. */
 class MainActivity : AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -31,7 +30,6 @@ class MainActivity : AppCompatActivity() {
 
         setContentView(R.layout.activity_main)
         findViewById<TextView>(R.id.tvHeaderTitle).text = Util.formatarTituloBooki(this)
-        // A BottomNavigationView já se afasta da barra de navegação sozinha.
         Util.aplicarMargensDoSistema(
             findViewById(R.id.raizMain),
             findViewById(R.id.headerBooki),
@@ -50,7 +48,6 @@ class MainActivity : AppCompatActivity() {
             )
             true
         }
-        // Só cria o primeiro fragment na primeira abertura; ao girar a tela o Android restaura o atual.
         if (savedInstanceState == null) {
             navegacao.selectedItemId = R.id.navEstante
         }
@@ -58,7 +55,6 @@ class MainActivity : AppCompatActivity() {
         lifecycleScope.launch {
             val usuario = AppDatabase.getInstance(this@MainActivity).userDao().buscarPorId(usuarioId)
             if (usuario == null) {
-                // Sessão antiga de um usuário que não existe mais.
                 sessao.sair()
                 irParaLogin()
             }
@@ -76,4 +72,3 @@ class MainActivity : AppCompatActivity() {
         finish()
     }
 }
-

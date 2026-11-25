@@ -4,7 +4,6 @@ import androidx.annotation.ColorRes
 import androidx.annotation.StringRes
 import br.upf.booki.R
 
-/** Situação de leitura de um livro na estante. */
 enum class StatusLeitura(@param:StringRes val rotulo: Int, @param:ColorRes val cor: Int) {
     LIDO(R.string.status_lido, R.color.status_lido),
     LENDO(R.string.status_lendo, R.color.status_lendo),

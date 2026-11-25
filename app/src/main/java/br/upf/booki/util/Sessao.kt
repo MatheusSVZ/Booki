@@ -2,13 +2,11 @@ package br.upf.booki.util
 
 import android.content.Context
 
-/** Guarda quem está logado (SharedPreferences), para não pedir login toda vez. */
 class Sessao(context: Context) {
 
     private val prefs = context.applicationContext
         .getSharedPreferences("booki_sessao", Context.MODE_PRIVATE)
 
-    /** Id do usuário logado ou null se ninguém estiver logado. */
     val usuarioId: Int?
         get() = prefs.getInt(CHAVE_USUARIO, SEM_USUARIO).takeIf { it != SEM_USUARIO }
 

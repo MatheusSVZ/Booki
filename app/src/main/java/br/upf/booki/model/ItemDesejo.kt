@@ -6,7 +6,6 @@ import androidx.room.Index
 import androidx.room.PrimaryKey
 import java.time.LocalDate
 
-/** Livro salvo na lista de desejos de um usuário. */
 @Entity(
     tableName = "desejos",
     foreignKeys = [
@@ -30,4 +29,3 @@ data class ItemDesejo(
     val dataAdicao: LocalDate = LocalDate.now(),
     val capaUrl: String? = null
 )
-

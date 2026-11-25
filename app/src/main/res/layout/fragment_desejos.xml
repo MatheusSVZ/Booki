@@ -50,7 +50,6 @@
         </com.google.android.material.chip.ChipGroup>
     </HorizontalScrollView>
 
-    <!-- Visão 1: Pesquisar livros e valores -->
     <LinearLayout
         android:id="@+id/painelPesquisa"
         android:layout_width="match_parent"
@@ -122,7 +121,6 @@
         </FrameLayout>
     </LinearLayout>
 
-    <!-- Visão 2: Lista de desejos salva no Room -->
     <FrameLayout
         android:id="@+id/painelListaDesejos"
         android:layout_width="match_parent"
@@ -155,4 +153,3 @@
             app:drawableTopCompat="@drawable/ic_desejos" />
     </FrameLayout>
 </LinearLayout>
-

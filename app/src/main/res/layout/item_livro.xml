@@ -16,7 +16,6 @@
         android:orientation="horizontal"
         android:padding="16dp">
 
-        <!-- Capa do livro (ou bloco colorido por status como fallback) -->
         <com.google.android.material.card.MaterialCardView
             android:id="@+id/capaStatus"
             android:layout_width="50dp"
@@ -88,4 +87,3 @@
             android:visibility="gone" />
     </LinearLayout>
 </com.google.android.material.card.MaterialCardView>
-

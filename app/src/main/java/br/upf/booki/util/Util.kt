@@ -17,16 +17,12 @@ import java.time.format.DateTimeFormatter
 import java.time.format.DateTimeParseException
 import java.time.format.ResolverStyle
 
-/**
- * Funções utilitárias usadas por todas as telas (diálogos, mensagens e datas).
- */
 class Util {
     companion object {
 
         private val FORMATO_DATA: DateTimeFormatter =
             DateTimeFormatter.ofPattern("dd/MM/uuuu").withResolverStyle(ResolverStyle.STRICT)
 
-        /** Formata "Booki!" destacando o "!" em laranja conforme a identidade visual. */
         fun formatarTituloBooki(context: Context): CharSequence {
             val texto = context.getString(R.string.app_name)
             val spannable = SpannableStringBuilder(texto)
@@ -42,7 +38,6 @@ class Util {
             return spannable
         }
 
-        /** Mostra um aviso simples com um botão OK. */
         fun dialogoAlerta(context: Context, titulo: String, mensagem: String) {
             AlertDialog.Builder(context)
                 .setTitle(titulo)
@@ -51,7 +46,6 @@ class Util {
                 .show()
         }
 
-        /** Pede confirmação; [aoConfirmar] só roda se o usuário tocar em "Sim". */
         fun dialogoConfirma(
             context: Context,
             titulo: String,
@@ -70,7 +64,6 @@ class Util {
             Toast.makeText(context, texto, Toast.LENGTH_SHORT).show()
         }
 
-        /** Converte "dd/MM/aaaa" em LocalDate; devolve null se o texto for inválido. */
         fun textoParaData(texto: String): LocalDate? = try {
             LocalDate.parse(texto.trim(), FORMATO_DATA)
         } catch (e: DateTimeParseException) {
@@ -79,11 +72,6 @@ class Util {
 
         fun dataParaTexto(data: LocalDate?): String = data?.format(FORMATO_DATA) ?: ""
 
-        /**
-         * A partir do Android 15 o app desenha atrás das barras do sistema.
-         * Empurra o [topo] (normalmente a Toolbar) para baixo da barra de status e,
-         * se [ajustarInferior] for true, afasta a [raiz] da barra de navegação e do teclado.
-         */
         fun aplicarMargensDoSistema(raiz: View, topo: View = raiz, ajustarInferior: Boolean = true) {
             val topoOriginal = topo.paddingTop
             val inferiorOriginal = raiz.paddingBottom

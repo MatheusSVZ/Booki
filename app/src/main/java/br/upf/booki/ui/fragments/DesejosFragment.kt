@@ -31,7 +31,6 @@ import com.google.android.material.textfield.TextInputEditText
 import com.google.android.material.textfield.TextInputLayout
 import kotlinx.coroutines.launch
 
-/** Aba Desejos: pesquisa livros e valores no Google Books e gerencia a lista de desejos no Room. */
 class DesejosFragment : Fragment() {
 
     private lateinit var painelPesquisa: View
@@ -262,4 +261,3 @@ class DesejosFragment : Fragment() {
         imm?.hideSoftInputFromWindow(foco.windowToken, 0)
     }
 }
-

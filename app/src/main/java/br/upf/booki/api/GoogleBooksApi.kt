@@ -3,10 +3,6 @@ package br.upf.booki.api
 import retrofit2.http.GET
 import retrofit2.http.Query
 
-/**
- * Google Books API (https://developers.google.com/books).
- * Usada para consultar o preço de venda dos livros (campo saleInfo).
- */
 interface GoogleBooksApi {
 
     @GET("books/v1/volumes")
@@ -53,7 +49,6 @@ data class IdentificadorLivro(
 )
 
 data class SaleInfo(
-    /** FOR_SALE, NOT_FOR_SALE, FREE... */
     val saleability: String?,
     val listPrice: Preco?,
     val retailPrice: Preco?,

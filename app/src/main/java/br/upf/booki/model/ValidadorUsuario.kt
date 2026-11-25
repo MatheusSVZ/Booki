@@ -1,6 +1,5 @@
 package br.upf.booki.model
 
-/** Regras do cadastro de usuário. Cada erro é ligado ao campo correspondente. */
 object ValidadorUsuario {
 
     enum class Campo { NOME, EMAIL, SENHA, CONFIRMACAO }

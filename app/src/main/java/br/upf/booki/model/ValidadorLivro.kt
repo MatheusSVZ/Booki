@@ -2,10 +2,6 @@ package br.upf.booki.model
 
 import java.time.LocalDate
 
-/**
- * Regras de negócio do cadastro de livros.
- * Fica fora da Activity para poder ser testado com testes unitários.
- */
 object ValidadorLivro {
 
     enum class Campo { TITULO, AUTOR, ISBN, PAGINAS, NOTA, DATA_INICIO, DATA_CONCLUSAO }
@@ -15,14 +11,11 @@ object ValidadorLivro {
     const val NOTA_MINIMA = 0.5f
     const val NOTA_MAXIMA = 5f
 
-    /** Tira hífens e espaços e deixa o X do ISBN-10 maiúsculo. */
     fun normalizarIsbn(isbn: String): String =
         isbn.filter { it.isDigit() || it == 'x' || it == 'X' }.uppercase()
 
-    /** Confere o dígito verificador do ISBN-10 ou ISBN-13. */
     fun isbnValido(isbn: String): Boolean {
         val limpo = normalizarIsbn(isbn)
-        // Não pode ter outros caracteres além de dígitos, hífen, espaço e X.
         if (isbn.any { !(it.isDigit() || it == '-' || it == ' ' || it == 'x' || it == 'X') }) return false
         return when (limpo.length) {
             10 -> isbn10Valido(limpo)
@@ -49,10 +42,6 @@ object ValidadorLivro {
         return soma % 10 == 0
     }
 
-    /**
-     * Valida um livro e devolve os erros por campo (mapa vazio = livro válido).
-     * [hoje] é parâmetro para facilitar os testes.
-     */
     fun validar(livro: Livro, hoje: LocalDate = LocalDate.now()): Map<Campo, String> {
         val erros = mutableMapOf<Campo, String>()
 
@@ -71,7 +60,6 @@ object ValidadorLivro {
             erros[Campo.PAGINAS] = "Número de páginas deve ficar entre 1 e $PAGINAS_MAXIMO"
         }
 
-        // Nota só faz sentido para livro lido.
         val nota = livro.nota
         if (nota != null) {
             if (livro.status != StatusLeitura.LIDO) erros[Campo.NOTA] = "Só é possível dar nota a um livro lido"

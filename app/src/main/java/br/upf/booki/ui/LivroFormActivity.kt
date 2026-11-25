@@ -50,10 +50,6 @@ import java.io.File
 import java.time.LocalDate
 import java.time.ZoneId
 
-/**
- * Formulário de livro: cria um livro novo ou edita um existente
- * (quando recebe putExtra("id", ...)).
- */
 class LivroFormActivity : AppCompatActivity() {
 
     private lateinit var campoBusca: TextInputLayout
@@ -76,12 +72,9 @@ class LivroFormActivity : AppCompatActivity() {
     private lateinit var txtErroNota: TextView
     private lateinit var btnSalvar: MaterialButton
 
-    /** 0 significa livro novo. */
     private var livroId = 0
     private var usuarioId = 0
-    /** ISBN mantido internamente quando vem da API ou da edição, sem campo visual no formulário. */
     private var isbnInterno: String? = null
-    /** URL remota (API) ou caminho absoluto local (`filesDir/capas/...`). */
     private var capaUrl: String? = null
     private var arquivoFotoTemp: File? = null
     private var uriFotoTemp: Uri? = null
@@ -177,7 +170,6 @@ class LivroFormActivity : AppCompatActivity() {
         }
 
         if (savedInstanceState != null) {
-            // Ao girar a tela os textos voltam sozinhos; datas, capa e ISBN interno guardamos à parte.
             isbnInterno = savedInstanceState.getString(ESTADO_ISBN)
             capaUrl = savedInstanceState.getString(ESTADO_CAPA)
             dataInicio = lerData(savedInstanceState, ESTADO_INICIO)
@@ -215,7 +207,6 @@ class LivroFormActivity : AppCompatActivity() {
         }
     }
 
-    /** Dados vindos de outra tela (ex.: uma recomendação) para facilitar o cadastro. */
     private fun preencherSugestao() {
         campoTitulo.editText?.setText(intent.getStringExtra(EXTRA_TITULO))
         campoAutor.editText?.setText(intent.getStringExtra(EXTRA_AUTOR))
@@ -332,7 +323,6 @@ class LivroFormActivity : AppCompatActivity() {
         else -> StatusLeitura.QUERO_LER
     }
 
-    /** Regra de negócio na tela: nota e conclusão só para "Lido"; início só para "Lendo" ou "Lido". */
     private fun atualizarCamposPorStatus() {
         val status = statusSelecionado()
         painelNota.visibility = if (status == StatusLeitura.LIDO) View.VISIBLE else View.GONE
@@ -359,18 +349,15 @@ class LivroFormActivity : AppCompatActivity() {
                 inicial.monthValue - 1,
                 inicial.dayOfMonth
             )
-            // Não deixa escolher datas futuras.
             dialogo.datePicker.maxDate = LocalDate.now().plusDays(1)
                 .atStartOfDay(ZoneId.systemDefault()).toInstant().toEpochMilli() - 1
             dialogo.show()
         }
-        // O ícone "limpar" apaga o texto; aí a data também volta a ser nula.
         edit.doAfterTextChanged { texto -> if (texto.isNullOrEmpty()) aoEscolher(null) }
     }
 
     private fun texto(campo: TextInputLayout) = campo.editText?.text?.toString()?.trim().orEmpty()
 
-    /** Busca livros por palavras-chave (Google Books com fallback Open Library) e abre seleção. */
     private fun buscarPorPalavrasChave() {
         if (buscando) return
         val termo = texto(campoBusca)
@@ -447,9 +434,7 @@ class LivroFormActivity : AppCompatActivity() {
         escolhido.categoria?.takeIf { it.isNotBlank() }?.let {
             if (texto(campoCategoria).isEmpty()) campoCategoria.editText?.setText(it.take(60))
         }
-        // ISBN fica guardado apenas internamente, sem aparecer no formulário.
         isbnInterno = normalizarIsbnSeValido(escolhido.isbn)
-        // Capa vinda da API é preenchida automaticamente (pode ser trocada depois pelo usuário).
         if (!escolhido.capaUrl.isNullOrBlank()) {
             capaUrl = escolhido.capaUrl
             atualizarPreviewCapa()

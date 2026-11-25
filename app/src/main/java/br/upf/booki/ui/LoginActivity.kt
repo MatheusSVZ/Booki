@@ -21,7 +21,6 @@ import com.google.android.material.textfield.TextInputEditText
 import com.google.android.material.textfield.TextInputLayout
 import kotlinx.coroutines.launch
 
-/** Primeira tela: login local contra a tabela de usuários do Room. */
 class LoginActivity : AppCompatActivity() {
 
     private lateinit var campoEmail: TextInputLayout
@@ -31,7 +30,6 @@ class LoginActivity : AppCompatActivity() {
     private lateinit var btnEntrar: MaterialButton
     private lateinit var sessao: Sessao
 
-    /** Ao voltar do cadastro com sucesso, já deixa o e-mail preenchido. */
     private val abrirCadastro =
         registerForActivityResult(ActivityResultContracts.StartActivityForResult()) { resultado ->
             if (resultado.resultCode == RESULT_OK) {
@@ -46,7 +44,6 @@ class LoginActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         sessao = Sessao(this)
 
-        // Já existe alguém logado: vai direto para a estante.
         if (sessao.usuarioId != null) {
             abrirPrincipal()
             return
@@ -122,4 +119,3 @@ class LoginActivity : AppCompatActivity() {
         finish()
     }
 }
-

@@ -13,7 +13,6 @@ import br.upf.booki.api.LivroPesquisa
 import br.upf.booki.util.CarregadorCapa
 import com.google.android.material.button.MaterialButton
 
-/** Adapter dos resultados da busca de livros e valores na Google Books API. */
 class PesquisaLivroAdapter(
     private val aoVerLoja: (LivroPesquisa) -> Unit,
     private val aoAdicionarDesejo: (LivroPesquisa) -> Unit
@@ -117,4 +116,3 @@ class PesquisaLivroAdapter(
             "ta:${titulo.trim().lowercase()}|${autor.trim().lowercase()}"
     }
 }
-

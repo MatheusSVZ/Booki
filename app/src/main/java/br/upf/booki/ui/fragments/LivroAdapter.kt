@@ -16,7 +16,6 @@ import br.upf.booki.util.Util
 import com.google.android.material.card.MaterialCardView
 import java.util.Locale
 
-/** Adapter da estante: destaca o primeiro livro em leitura no topo e exibe os demais no estilo de cards. */
 class LivroAdapter(
     private val aoClicar: (Livro) -> Unit
 ) : RecyclerView.Adapter<RecyclerView.ViewHolder>() {
@@ -135,4 +134,3 @@ class LivroAdapter(
         const val TIPO_COMUM = 1
     }
 }
-

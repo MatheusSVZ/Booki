@@ -6,7 +6,6 @@
     <string name="cancelar">Cancelar</string>
     <string name="voltar">Voltar</string>
 
-    <!-- Login e cadastro -->
     <string name="titulo_login">Entrar</string>
     <string name="email">E-mail</string>
     <string name="senha">Senha</string>
@@ -26,7 +25,6 @@
     <string name="titulo_falha_login">Não foi possível entrar</string>
     <string name="erro_login_incorreto">E-mail ou senha incorretos.</string>
 
-    <!-- Principal -->
     <string name="nav_estante">Estante</string>
     <string name="nav_desejos">Desejos</string>
     <string name="titulo_estante">Minha estante</string>
@@ -38,7 +36,6 @@
     <string name="sair">Sair</string>
     <string name="confirma_sair">Deseja sair da sua conta?</string>
 
-    <!-- Estante -->
     <string name="status_lido">Lido</string>
     <string name="status_lendo">Lendo</string>
     <string name="status_quero_ler">Quero ler</string>
@@ -51,7 +48,6 @@
     <string name="nota_resumo">★ %1$s</string>
     <string name="novo_livro">Novo livro</string>
 
-    <!-- Formulário de livro -->
     <string name="titulo_novo_livro">Novo livro</string>
     <string name="titulo_editar_livro">Editar livro</string>
     <string name="titulo_obrigatorio">Título *</string>
@@ -73,7 +69,6 @@
     <string name="livro_atualizado">Livro atualizado</string>
     <string name="livro_nao_encontrado">Livro não encontrado</string>
 
-    <!-- Detalhe do livro -->
     <string name="titulo_detalhe_livro">Detalhes do livro</string>
     <string name="info_isbn">ISBN: %1$s</string>
     <string name="info_categoria">Categoria: %1$s</string>
@@ -94,7 +89,6 @@
     <string name="confirma_excluir">Excluir \"%1$s\" da sua estante? Essa ação não pode ser desfeita.</string>
     <string name="livro_excluido">Livro excluído</string>
 
-    <!-- Internet / APIs -->
     <string name="sem_internet_titulo">Sem conexão</string>
     <string name="sem_internet_msg">Não foi possível acessar a internet. Verifique o Wi-Fi ou os dados móveis e tente de novo.</string>
     <string name="servico_indisponivel_titulo">Serviço indisponível</string>
@@ -105,7 +99,6 @@
     <string name="isbn_nao_encontrado_msg">Não encontramos esse ISBN na Open Library. Preencha os dados manualmente.</string>
     <string name="dados_preenchidos">Dados preenchidos pela Open Library</string>
 
-    <!-- Desejos e busca de preços -->
     <string name="aba_pesquisar">Pesquisar</string>
     <string name="aba_lista_desejos">Lista de desejos</string>
     <string name="hint_buscar_livros">Buscar por título, autor ou ISBN</string>
@@ -133,7 +126,6 @@
     <string name="subtitulo_escolher_livro">Toque em um livro para preencher os dados automaticamente.</string>
     <string name="dados_preenchidos_busca">Dados preenchidos pela busca</string>
 
-    <!-- Capas de livros -->
     <string name="capa_livro">Capa do livro</string>
     <string name="subtitulo_capa_livro">Opcional: preenchida pela busca, galeria ou câmera</string>
     <string name="adicionar_capa">Adicionar capa</string>
@@ -147,4 +139,3 @@
     <string name="permissao_camera_negada">Permissão de câmera necessária para tirar foto da capa.</string>
     <string name="camera_indisponivel">Não foi possível abrir a câmera neste aparelho.</string>
 </resources>
-
